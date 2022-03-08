@@ -26,8 +26,7 @@ enum IronBlock {
 // global variables
 const stopBlock = BEDROCK
 const stopPosition = world(35,1,0)
-const locateCrack = 73
-const locateGoonTarget = 113
+const locateCrackPlace = 73
 
 const directions = [
     FORWARD,
@@ -115,7 +114,7 @@ namespace fs {
     }
     
     /**
-     * Inspect in the d direction for the crack
+     * Inspect in the d direction for crack
      */
     //% block="Crack is %d"
     export function locateCrack(d: Direction): boolean {
@@ -125,7 +124,7 @@ namespace fs {
 
         const inspected = agent.inspect(AgentInspection.Block, direction);
 
-        return inspected == locateCrack;
+        return inspected === locateCrackPlace;
     }
 
     /**
