@@ -7,7 +7,11 @@ enum Direction {
     //% block="left"
     Left,
     //% block="right"
-    Right
+    Right,
+    //% block="up"
+    Up,
+    //% block="down"
+    Down
 }
 
 enum Concrete {
@@ -32,7 +36,9 @@ const directions = [
     FORWARD,
     BACK,
     LEFT,
-    RIGHT
+    RIGHT,
+    UP,
+    DOWN
 ];
 
 const turns = [
