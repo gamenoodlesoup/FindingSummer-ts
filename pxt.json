@@ -1,5 +1,5 @@
 {
-    "name": "minecraft-find_summer-generator",
+    "name": "minecraft-finding-summer-generator",
     "version": "1.0",
     "dependencies": {
         "core": "*",
