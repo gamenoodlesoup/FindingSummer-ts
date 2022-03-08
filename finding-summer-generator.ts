@@ -128,7 +128,7 @@ namespace fs {
      * Break the crack in the d direction
      */
     //% block="Break Crack %d"
-    export function BreackCrack(d: Direction): void {
+    export function BreakCrack(d: Direction): void {
         if(shouldStop()) return;
 
         const direction = directions[d];
