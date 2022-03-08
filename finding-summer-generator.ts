@@ -86,17 +86,21 @@ namespace fs {
         agent.place(direction);
     }
 
-    //% block="Replace crack by %block %d"
-    export function placeIronBlock(d: Direction, block: IronBlock): void {
-        if(shouldStop()) return;
+    // /**
+    //  * Place block in the d direction
+    //  * @param block the block
+    //  */   
+    // //% block="Replace crack by %block %d"
+    // export function placeIronBlock(d: Direction, block: IronBlock): void {
+    //     if(shouldStop()) return;
 
-        agent.setItem(block, 1, 1)
-        agent.setSlot(1)
+    //     agent.setItem(block, 1, 1)
+    //     agent.setSlot(1)
 
-        const direction = directions[d];
+    //     const direction = directions[d];
 
-        agent.place(direction);
-    }  
+    //     agent.place(direction);
+    // }  
 
     /**
      * Clean the leak in the d direction
@@ -128,7 +132,7 @@ namespace fs {
      * Break the crack in the d direction
      */
     //% block="Break Crack %d"
-    export function BreakCrack(d: Direction): void {
+    export function breakCrack(d: Direction): void {
         if(shouldStop()) return;
 
         const direction = directions[d];
