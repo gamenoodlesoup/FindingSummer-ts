@@ -1,0 +1,17 @@
+{
+    "name": "minecraft-find_summer-generator",
+    "version": "1.0",
+    "dependencies": {
+        "core": "*",
+        "builder": "*"
+    },
+    "files": [
+        "README.md",
+        "ww1984.ts"
+
+    ],
+    "supportedTargets": [
+        "minecraft"
+    ],
+    "preferredEditor": "tsprj"
+}
