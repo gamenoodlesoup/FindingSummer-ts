@@ -74,7 +74,7 @@ namespace fs {
      * Place block in the d direction
      * @param block the block
      */    
-    //% block="Place %block %d"
+    //% block="Filling hole by %block %d"
     export function placeConcrete(d: Direction, block: Concrete): void {
         if(shouldStop()) return;
 
@@ -86,11 +86,7 @@ namespace fs {
         agent.place(direction);
     }
 
-    /**
-     * Place block in the d direction
-     * @param block the block
-     */    
-    //% block="Place %block %d"
+    //% block="Replace crack by %block %d"
     export function placeIronBlock(d: Direction, block: IronBlock): void {
         if(shouldStop()) return;
 
@@ -126,6 +122,18 @@ namespace fs {
         const inspected = agent.inspect(AgentInspection.Block, direction);
 
         return inspected == locateCrack;
+    }
+
+    /**
+     * Break the crack in the d direction
+     */
+    //% block="Break Crack %d"
+    export function BreackCrack(d: Direction): void {
+        if(shouldStop()) return;
+
+        const direction = directions[d];
+
+        agent.destroy(direction);
     }
 
     // helper functions
