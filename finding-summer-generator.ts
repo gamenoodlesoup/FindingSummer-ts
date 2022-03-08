@@ -71,11 +71,11 @@ namespace fs {
     }  
 
     /**
-     * Place block in the d direction
+     * Filling hole by placing block in the d direction
      * @param block the block
      */    
     //% block="Filling hole by %block %d"
-    export function placeConcrete(d: Direction, block: Concrete): void {
+    export function fillHole(block: Concrete, d: Direction): void {
         if(shouldStop()) return;
 
         agent.setItem(block, 1, 1)
@@ -84,23 +84,23 @@ namespace fs {
         const direction = directions[d];
 
         agent.place(direction);
-    }
+    }  
 
-    // /**
-    //  * Place block in the d direction
-    //  * @param block the block
-    //  */   
-    // //% block="Replace crack by %block %d"
-    // export function placeIronBlock(d: Direction, block: IronBlock): void {
-    //     if(shouldStop()) return;
+    /**
+     * Replacing wall by placing block in the d direction
+     * @param block the block
+     */    
+    //% block="Replacing wall by %block %d"
+    export function replaceWall(block: IronBlock, d: Direction): void {
+        if(shouldStop()) return;
 
-    //     agent.setItem(block, 1, 1)
-    //     agent.setSlot(1)
+        agent.setItem(block, 1, 1)
+        agent.setSlot(1)
 
-    //     const direction = directions[d];
+        const direction = directions[d];
 
-    //     agent.place(direction);
-    // }  
+        agent.place(direction);
+    }  
 
     /**
      * Clean the leak in the d direction
