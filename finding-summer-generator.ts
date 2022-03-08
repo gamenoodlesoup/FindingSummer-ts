@@ -125,7 +125,7 @@ namespace fs {
 
         const inspected = agent.inspect(AgentInspection.Block, direction);
 
-        return inspected === locateCrack;
+        return inspected == locateCrack;
     }
 
     // helper functions
