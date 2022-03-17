@@ -28,7 +28,7 @@ enum IronBlock {
 
 enum Concrete_System {
     //% blockIdentity="blocks.block" enumval=917740 block="Red Concrete"
-    //% jres alias=RED_CONRETE
+    //% jres alias=RED_CONCRETE
     RedConcrete = 917740,
     //% blockIdentity="blocks.block" enumval=852204 block="Green Concrete"
     //% jres alias=GREEN_CONRETE
