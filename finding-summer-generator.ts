@@ -187,7 +187,7 @@ namespace fs {
     //% block="Pick up fuel around"
     export function pickFuel() {
 
-        agent.collect(LavaBucket);
+        agent.collect(Bucket);
     }
 
     /**
@@ -234,7 +234,7 @@ namespace fs {
             if (agent.getItemDetail(2) == PackedIce) {
                 count_2 = agent.getItemCount(2);
             }
-            agent.setItem(PackedIce, count_2 + 1, 1)
+            agent.setItem(PackedIce, count_2 + 1, 2)
         };
     }
 
