@@ -31,13 +31,13 @@ enum Concrete_System {
     //% jres alias=RED_CONCRETE
     RedConcrete = 917740,
     //% blockIdentity="blocks.block" enumval=852204 block="Green Concrete"
-    //% jres alias=GREEN_CONRETE
+    //% jres alias=GREEN_CONCRETE
     GreenConcrete = 852204,
     //% blockIdentity="blocks.block" enumval=721132 block="Blue Concrete"
-    //% jres alias=BLUE_CONRETE
+    //% jres alias=BLUE_CONCRETE
     BlueConcrete = 721132,
     //% blockIdentity="blocks.block" enumval=262380 block="Yellow Concrete"
-    //% jres alias=YELLOW_CONRETE
+    //% jres alias=YELLOW_CONCRETE
     YellowConcrete = 262380
 }
 
