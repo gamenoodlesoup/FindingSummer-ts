@@ -168,7 +168,7 @@ namespace fs {
      * @param block the block
      */    
     //% block="Placing %block %d"
-    export function repairIgnition(block: Concrete, d: Direction): void {
+    export function repairIgnition(block: Concrete_System, d: Direction): void {
         if(shouldStop()) return;
 
         agent.setItem(block, 1, 1)
@@ -182,10 +182,8 @@ namespace fs {
     /**
      * Pick up fuel in the d direction
      */
-    //% block="Pick up fuel %d"
-    export function pickFuel(d: Direction): void {
-
-        const direction = directions[d];
+    //% block="Pick up fuel around"
+    export function pickFuel() {
 
         agent.collect(LavaBucket);
     }
