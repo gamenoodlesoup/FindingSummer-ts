@@ -41,6 +41,15 @@ enum Concrete_System {
     YellowConcrete = 262380
 }
 
+enum Ice {
+    //% blockIdentity="blocks.block" enumval=522 block="Blue Ice"
+    //% jres alias=BLUE_ICE
+    BlueIce = 522,
+    //% blockIdentity="blocks.block" enumval=174 block="Packed Ice"
+    //% jres alias=PACKEDICE
+    PackedIce = 174
+}
+
 
 // global variables
 const stopBlock = BEDROCK
@@ -184,16 +193,16 @@ namespace fs {
     /**
      * Pick up fuel in the d direction
      */
-    //% block="Pick up fuel around"
+    //% block="Picking fuel around"
     export function pickFuel() {
 
         agent.collect(Bucket);
     }
 
     /**
-     * Place fuel in the d direction
+     * Fill the fuel in the d direction
      */
-    //% block="Place Fuel %d"
+    //% block="Filling Fuel %d"
     export function placeFuel(d: Direction): void {
         
         const direction = directions[d];
@@ -210,7 +219,7 @@ namespace fs {
     /**
      * Pick up cooler in the d direction
      */
-    //% block="Pick up cooler %d"
+    //% block="Picking Cooler %d"
     export function pickCooler(d: Direction): void {
 
         const direction = directions[d];
@@ -239,15 +248,21 @@ namespace fs {
     }
 
     /**
-     * Place cooler in the d direction
-     */
-    //% block="Place cooler %d"
-    export function placeCooler(d: Direction): void {
-        
+     * Placing cooler in the d direction
+     * @param block the block
+     */    
+    //% block="Placing Cooler %block %d"
+    export function placeCooler(block: Ice, d: Direction): void {
+        if(shouldStop()) return;
+
+        agent.setItem(block, 1, 1)
+        agent.setSlot(1)
+
         const direction = directions[d];
 
         agent.place(direction);
-    }
+    }  
+
 
 
     // helper functions
