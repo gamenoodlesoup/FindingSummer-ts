@@ -47,8 +47,10 @@ const stopBlock = BEDROCK
 const stopPosition = world(35,1,0)
 const locateCrackPlace = 73
 const LavaBucket = 655685
+const Lava = 11
 const BlueIce = 522
 const PackedIce = 174
+const Bucket = 325
 
 const directions = [
     FORWARD,
@@ -196,7 +198,9 @@ namespace fs {
         
         const direction = directions[d];
 
-        if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == LavaBucket) {
+        if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == Bucket) {
+            agent.setItem(LAVA_BUCKET, 1, 2)
+            agent.setSlot(2)
             agent.place(direction);
         } else {
             player.tell(mobs.target(LOCAL_PLAYER), "I don't have LavaBucket to place Lava!")
@@ -211,20 +215,27 @@ namespace fs {
 
         const direction = directions[d];
 
-        if (agent.destroy(direction)) {
+        if (agent.inspect(AgentInspection.Block, direction) == BlueIce) {
+            agent.destroy(direction);
 
             let count_1 = 0;
-            let count_2 = 0;
 
             if (agent.getItemDetail(1) == BlueIce) {
                 count_1 = agent.getItemCount(1);
             }
+            agent.setItem(BlueIce, count_1 + 1, 1)
+        };
+
+        if (agent.inspect(AgentInspection.Block, direction) == PackedIce) {
+            agent.destroy(direction);
+
+            let count_2 = 0;
+            
             if (agent.getItemDetail(2) == PackedIce) {
                 count_2 = agent.getItemCount(2);
             }
-            agent.setItem(BlueIce, count_1 + 1, 1)
-            agent.setItem(PackedIce, count_2 + 1, 2)
-        }
+            agent.setItem(PackedIce, count_2 + 1, 1)
+        };
     }
 
     /**
