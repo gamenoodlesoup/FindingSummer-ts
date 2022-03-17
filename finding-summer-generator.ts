@@ -46,7 +46,7 @@ enum Ice {
     //% jres alias=BLUE_ICE
     BlueIce = 522,
     //% blockIdentity="blocks.block" enumval=174 block="Packed Ice"
-    //% jres alias=PACKEDICE
+    //% jres alias=PACKED_ICE
     PackedIce = 174
 }
 
