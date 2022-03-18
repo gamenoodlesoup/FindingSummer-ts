@@ -188,49 +188,7 @@ namespace fs {
 
         const direction = directions[d];
 
-        if (agent.inspect(AgentInspection.Block, direction) == RedConcrete) {
-            agent.destroy(direction);
-
-            let count_1 = 0;
-
-            if (agent.getItemDetail(1) == RedConcrete) {
-                count_1 = agent.getItemCount(1);
-            }
-            agent.setItem(RedConcrete, count_1 + 1, 1)
-        };
-
-        if (agent.inspect(AgentInspection.Block, direction) == GreenConcrete) {
-            agent.destroy(direction);
-
-            let count_2 = 0;
-            
-            if (agent.getItemDetail(2) == GreenConcrete) {
-                count_2 = agent.getItemCount(2);
-            }
-            agent.setItem(GreenConcrete, count_2 + 1, 2)
-        };
-
-        if (agent.inspect(AgentInspection.Block, direction) == BlueConcrete) {
-            agent.destroy(direction);
-
-            let count_3 = 0;
-            
-            if (agent.getItemDetail(3) == BlueConcrete) {
-                count_3 = agent.getItemCount(3);
-            }
-            agent.setItem(BlueConcrete, count_3 + 1, 3)
-        };
-
-        if (agent.inspect(AgentInspection.Block, direction) == YellowConcrete) {
-            agent.destroy(direction);
-
-            let count_4 = 0;
-            
-            if (agent.getItemDetail(4) == YellowConcrete) {
-                count_4 = agent.getItemCount(4);
-            }
-            agent.setItem(YellowConcrete, count_4 + 1, 4)
-        };
+        agent.destroy(direction);
     }
 
     /**
@@ -252,7 +210,7 @@ namespace fs {
     /**
      * Pick up fuel in the d direction
      */
-    //% block="Picking fuel around"
+    //% block="Picking Fuel Around"
     export function pickFuel() {
 
         agent.collect(Bucket);
