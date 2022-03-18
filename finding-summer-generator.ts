@@ -181,9 +181,9 @@ namespace fs {
 
 
     /**
-     * Pick up coolant in the d direction
+     * Pick up color coding block in the d direction
      */
-    //% block="Picking coolant %d"
+    //% block="Picking Color Coding Block %d"
     export function pickColorBlock(d: Direction): void {
 
         const direction = directions[d];
