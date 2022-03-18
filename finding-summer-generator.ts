@@ -61,6 +61,10 @@ const BlueIce = 522
 const PackedIce = 174
 const Bucket = 325
 const EndRod = 208
+const RedConcrete = 917740
+const GreenConcrete = 852204
+const BlueConcrete = 721132
+const YellowConcrete = 262380
 
 const directions = [
     FORWARD,
@@ -175,6 +179,60 @@ namespace fs {
         agent.destroy(direction);
     }
 
+
+    /**
+     * Pick up coolant in the d direction
+     */
+    //% block="Picking coolant %d"
+    export function pickColorBlock(d: Direction): void {
+
+        const direction = directions[d];
+
+        if (agent.inspect(AgentInspection.Block, direction) == RedConcrete) {
+            agent.destroy(direction);
+
+            let count_1 = 0;
+
+            if (agent.getItemDetail(1) == RedConcrete) {
+                count_1 = agent.getItemCount(1);
+            }
+            agent.setItem(RedConcrete, count_1 + 1, 1)
+        };
+
+        if (agent.inspect(AgentInspection.Block, direction) == GreenConcrete) {
+            agent.destroy(direction);
+
+            let count_2 = 0;
+            
+            if (agent.getItemDetail(2) == GreenConcrete) {
+                count_2 = agent.getItemCount(2);
+            }
+            agent.setItem(GreenConcrete, count_2 + 1, 2)
+        };
+
+        if (agent.inspect(AgentInspection.Block, direction) == BlueConcrete) {
+            agent.destroy(direction);
+
+            let count_3 = 0;
+            
+            if (agent.getItemDetail(3) == BlueConcrete) {
+                count_3 = agent.getItemCount(3);
+            }
+            agent.setItem(BlueConcrete, count_3 + 1, 3)
+        };
+
+        if (agent.inspect(AgentInspection.Block, direction) == YellowConcrete) {
+            agent.destroy(direction);
+
+            let count_4 = 0;
+            
+            if (agent.getItemDetail(4) == YellowConcrete) {
+                count_4 = agent.getItemCount(4);
+            }
+            agent.setItem(YellowConcrete, count_4 + 1, 4)
+        };
+    }
+
     /**
      * Placing block in the d direction
      * @param block the block
@@ -218,10 +276,10 @@ namespace fs {
     }
 
     /**
-     * Pick up cooler in the d direction
+     * Pick up coolant in the d direction
      */
-    //% block="Picking Cooler %d"
-    export function pickCooler(d: Direction): void {
+    //% block="Picking Coolant %d"
+    export function pickCoolant(d: Direction): void {
 
         const direction = directions[d];
 
@@ -249,11 +307,11 @@ namespace fs {
     }
 
     /**
-     * Placing cooler in the d direction
+     * Placing coolant in the d direction
      * @param block the block
      */    
-    //% block="Placing Cooler %block %d"
-    export function placeCooler(block: Ice, d: Direction): void {
+    //% block="Placing Coolant %block %d"
+    export function placeCoolant(block: Ice, d: Direction): void {
         if(shouldStop()) return;
 
         agent.setItem(block, 1, 1)
