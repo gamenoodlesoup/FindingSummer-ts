@@ -60,6 +60,7 @@ const Lava = 11
 const BlueIce = 522
 const PackedIce = 174
 const Bucket = 325
+const EndRod = 208
 
 const directions = [
     FORWARD,
@@ -263,6 +264,42 @@ namespace fs {
         agent.place(direction);
     }  
 
+    /**
+     * Pick up receiver in the d direction
+     */
+    //% block="Picking Receiver %d"
+    export function pickReceiver(d: Direction): void {
+
+        const direction = directions[d];
+
+        if (agent.inspect(AgentInspection.Block, direction) == EndRod) {
+            agent.destroy(direction);
+
+            let count_1 = 0;
+
+            if (agent.getItemDetail(1) == EndRod) {
+                count_1 = agent.getItemCount(1);
+            }
+            agent.setItem(EndRod, count_1 + 1, 1)
+        }
+    }
+
+    /**
+     * Place the Receiver in the d direction
+     */
+    //% block="Placing Receiver %d"
+    export function placeReceiver(d: Direction): void {
+        
+        const direction = directions[d];
+
+        if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == EndRod) {
+            agent.setItem(EndRod, 1, 1)
+            agent.setSlot(1)
+            agent.place(direction);
+        } else {
+            player.tell(mobs.target(LOCAL_PLAYER), "I don't have receiver to place!")
+        }
+    }
 
 
     // helper functions
