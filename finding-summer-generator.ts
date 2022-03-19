@@ -226,7 +226,7 @@ namespace fs {
     }
 
     /**
-     * Fill the fuel in the d direction
+     * Fill the fuel Down
      */
     //% block="Filling Fuel %d"
     export function placeFuel() {
