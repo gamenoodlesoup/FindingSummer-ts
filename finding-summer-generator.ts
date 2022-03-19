@@ -162,15 +162,28 @@ namespace fs {
      * Fill the fuel in the d direction
      */
     //% block="Filling Fuel %d"
-    export function placeFuel(d: SixDirection): void {
+    export function placeFuel() {
     
+        const check = [world(1081, 45, -230), world(1086, 45, -230), world(1091, 45, -230)];
+        let canPlace = false;
 
-        if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == Item.Bucket) {
-            agent.setItem(Item.LavaBucket, 1, 2)
-            agent.setSlot(2)
-            agent.place(d);
-        } else {
-            player.tell(mobs.target(LOCAL_PLAYER), "I don't have LavaBucket to place Lava!")
+        for (const c of check) {
+            if (compareWorldPosition(agent.getPosition().toWorld(), c)) {
+                canPlace = true;
+                break;
+            }
+        }
+        
+        if (canPlace == true) {
+            if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == BUCKET) {
+                    agent.setItem(LAVA_BUCKET, 1, 2)
+                    agent.setSlot(2)
+                    agent.place(DOWN)
+                } else {
+                    player.tell(mobs.target(LOCAL_PLAYER), "I don't have LavaBucket to place Lava!")
+                }
+        }else{
+            player.tell(mobs.target(LOCAL_PLAYER), "I can't place Lava at this position!")
         }
     }
 
@@ -255,5 +268,13 @@ namespace fs {
     // helper functions
     function shouldStop(): boolean {
         return blocks.testForBlock(stopBlock, stopPosition);
+    }
+
+    function compareWorldPosition(oldPos: Position, newPos: Position) {
+        let same = true;
+        if (oldPos.getValue(Axis.X) != newPos.getValue(Axis.X)) same = false;
+        if (oldPos.getValue(Axis.Y) != newPos.getValue(Axis.Y)) same = false;
+        if (oldPos.getValue(Axis.Z) != newPos.getValue(Axis.Z)) same = false;
+        return same;
     }
 }
