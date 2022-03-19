@@ -40,6 +40,31 @@ enum Ice {
 const stopBlock = BEDROCK
 const stopPosition = world(35,1,0)
 
+namespace agent {
+    export function getCardinalDirection(d: SixDirection) : CardinalDirection {
+        if (d == SixDirection.Up) return CardinalDirection.Up;
+        if (d == SixDirection.Down) return CardinalDirection.Down;
+
+        let actionDirection = 180 + agent.getOrientation();
+        switch (d) {
+            case 0: break;
+            case 1: actionDirection += 180; break;
+            case 2: actionDirection += 270; break;
+            case 3: actionDirection += 90; break;
+            default: break;
+        }
+        actionDirection = (actionDirection % 360) - 180
+
+        switch (actionDirection) {
+            case -180: return CardinalDirection.North;
+            case -90: return CardinalDirection.East;
+            case 0: return CardinalDirection.South;
+            case 90: return CardinalDirection.West;
+            default: return -1;
+        }
+    }
+}
+
 //%  block="Finding Summer" weight=200 color=#BF9B30 icon="\u2605"
 namespace fs {
 
@@ -132,7 +157,49 @@ namespace fs {
     //% block="Picking Color Coding Block %d"
     export function pickColorBlock(d: SixDirection): void {
 
-        agent.destroy(d);
+        if (checkBlockFromAgent(RED_CONCRETE, d)) {
+            agent.destroy(d);
+
+            let count_1 = 0;
+
+            if (agent.getItemDetail(1) == RED_CONCRETE) {
+                count_1 = agent.getItemCount(1);
+            }
+            agent.setItem(RED_CONCRETE, count_1 + 1, 1)
+        };
+
+        if (checkBlockFromAgent(BLUE_CONCRETE, d)) {
+            agent.destroy(d);
+
+            let count_2 = 0;
+
+            if (agent.getItemDetail(2) == BLUE_CONCRETE) {
+                count_2 = agent.getItemCount(1);
+            }
+            agent.setItem(BLUE_CONCRETE, count_2 + 1, 2)
+        };
+
+        if (checkBlockFromAgent(GREEN_CONCRETE, d)) {
+            agent.destroy(d);
+
+            let count_3 = 0;
+
+            if (agent.getItemDetail(3) == GREEN_CONCRETE) {
+                count_3 = agent.getItemCount(1);
+            }
+            agent.setItem(GREEN_CONCRETE, count_3 + 1, 3)
+        };
+
+        if (checkBlockFromAgent(YELLOW_CONCRETE, d)) {
+            agent.destroy(d);
+
+            let count_4 = 0;
+
+            if (agent.getItemDetail(4) == YELLOW_CONCRETE) {
+                count_4 = agent.getItemCount(1);
+            }
+            agent.setItem(YELLOW_CONCRETE, count_4 + 1, 4)
+        };
     }
 
     /**
@@ -276,5 +343,11 @@ namespace fs {
         if (oldPos.getValue(Axis.Y) != newPos.getValue(Axis.Y)) same = false;
         if (oldPos.getValue(Axis.Z) != newPos.getValue(Axis.Z)) same = false;
         return same;
+    }
+    function checkBlockFromAgent(block: Block, d: SixDirection) : boolean {
+        const dir = agent.getCardinalDirection(d);
+        const checkPos = agent.getPosition().move(dir, 1);
+
+        return blocks.testForBlock(block, checkPos)
     }
 }
