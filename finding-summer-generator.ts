@@ -328,11 +328,11 @@ namespace fs {
         ];
 
         const dir = agent.getCardinalDirection(d);
-
+        const agentPos = agent.getPosition().move(dir, 1);
         let canPlace = false;
 
         for (const c of check) {
-            if (agent.getPosition().move(dir, 1), c) {
+            if (compareWorldPosition(agentPos,c)) {
                 canPlace = true;
                 break;
             }
