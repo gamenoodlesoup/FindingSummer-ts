@@ -342,11 +342,7 @@ namespace fs {
             if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == block) {
                 agent.setSlot(1)
                 agent.place(d);
-            } else {
-                player.tell(mobs.target(LOCAL_PLAYER), "I don't have coolant to place!")
-            };
-
-            if (agent.getItemCount(2) > 0 && agent.getItemDetail(2) == block) {
+            } else if (agent.getItemCount(2) > 0 && agent.getItemDetail(2) == block) {
                 agent.setSlot(2)
                 agent.place(d);
             } else {
@@ -356,6 +352,7 @@ namespace fs {
         } else {
             player.tell(mobs.target(LOCAL_PLAYER), "I can't place coolant at this position!")
         };
+
     }  
 
     /**
