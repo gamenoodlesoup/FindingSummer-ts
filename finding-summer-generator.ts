@@ -210,10 +210,33 @@ namespace fs {
     export function repairIgnition(block: Concrete_System, d: SixDirection): void {
         if(shouldStop()) return;
 
-        agent.setItem(block, 1, 1)
-        agent.setSlot(1)
+        if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == block) {
+            agent.setSlot(1)
+            agent.place(d);
+        } else {
+            player.tell(mobs.target(LOCAL_PLAYER), "I don't have Color Code Block to place!")
+        };
 
-        agent.place(d);
+        if (agent.getItemCount(2) > 0 && agent.getItemDetail(2) == block) {
+            agent.setSlot(2)
+            agent.place(d);
+        } else {
+            player.tell(mobs.target(LOCAL_PLAYER), "I don't have Color Code Block to place!")
+        };
+
+        if (agent.getItemCount(3) > 0 && agent.getItemDetail(3) == block) {
+            agent.setSlot(3)
+            agent.place(d);
+        } else {
+            player.tell(mobs.target(LOCAL_PLAYER), "I don't have Color Code Block to place!")
+        };
+
+        if (agent.getItemCount(4) > 0 && agent.getItemDetail(4) == block) {
+            agent.setSlot(4)
+            agent.place(d);
+        } else {
+            player.tell(mobs.target(LOCAL_PLAYER), "I don't have Color Code Block to place!")
+        };
     }  
 
     /**
@@ -231,7 +254,12 @@ namespace fs {
     //% block="Filling Fuel %d"
     export function placeFuel() {
     
-        const check = [world(1081, 45, -230), world(1086, 45, -230), world(1091, 45, -230)];
+        const check = [
+            world(1081, 45, -230), 
+            world(1086, 45, -230), 
+            world(1091, 45, -230)
+        ];
+
         let canPlace = false;
 
         for (const c of check) {
@@ -291,10 +319,47 @@ namespace fs {
     export function placeCoolant(block: Ice, d: SixDirection): void {
         if(shouldStop()) return;
 
-        agent.setItem(block, 1, 1)
-        agent.setSlot(1)
+        const check = [
+            world(1058, 50, -265), 
+            world(1058, 49, -265), 
+            world(1058, 48, -265), 
+            world(1058, 47, -265), 
+            world(1058, 46, -265)
+        ];
 
-        agent.place(d);
+        const dir = agent.getCardinalDirection(d);
+
+        let canPlace = false;
+
+        for (const c of check) {
+            if (agent.getPosition().move(dir, 1), c) {
+                canPlace = true;
+                break;
+            }
+        }
+
+        if (canPlace == true) {
+            if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == block) {
+                agent.setSlot(1)
+                agent.place(d);
+            } else {
+                    player.tell(mobs.target(LOCAL_PLAYER), "I don't have coolant to place!")
+                }
+        } else {
+            player.tell(mobs.target(LOCAL_PLAYER), "I can't place coolant at this position!")
+        };
+
+        
+        if (canPlace == true) {
+            if (agent.getItemCount(2) > 0 && agent.getItemDetail(2) == block) {
+                agent.setSlot(2)
+                agent.place(d);
+            } else {
+                    player.tell(mobs.target(LOCAL_PLAYER), "I don't have coolant to place!")
+                }
+        } else {
+            player.tell(mobs.target(LOCAL_PLAYER), "I can't place coolant at this position!")
+        }
     }  
 
     /**
@@ -321,7 +386,6 @@ namespace fs {
     //% block="Placing Receiver %d"
     export function placeReceiver(d: SixDirection): void {
     
-
         if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == Block.EndRod) {
             agent.setItem(Block.EndRod, 1, 1)
             agent.setSlot(1)
@@ -344,6 +408,7 @@ namespace fs {
         if (oldPos.getValue(Axis.Z) != newPos.getValue(Axis.Z)) same = false;
         return same;
     }
+
     function checkBlockFromAgent(block: Block, d: SixDirection) : boolean {
         const dir = agent.getCardinalDirection(d);
         const checkPos = agent.getPosition().move(dir, 1);
