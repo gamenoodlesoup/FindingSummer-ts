@@ -343,23 +343,19 @@ namespace fs {
                 agent.setSlot(1)
                 agent.place(d);
             } else {
-                    player.tell(mobs.target(LOCAL_PLAYER), "I don't have coolant to place!")
-                }
-        } else {
-            player.tell(mobs.target(LOCAL_PLAYER), "I can't place coolant at this position!")
-        };
+                player.tell(mobs.target(LOCAL_PLAYER), "I don't have coolant to place!")
+            };
 
-        
-        if (canPlace == true) {
             if (agent.getItemCount(2) > 0 && agent.getItemDetail(2) == block) {
                 agent.setSlot(2)
                 agent.place(d);
             } else {
-                    player.tell(mobs.target(LOCAL_PLAYER), "I don't have coolant to place!")
-                }
+                player.tell(mobs.target(LOCAL_PLAYER), "I don't have coolant to place!")
+            }             
+
         } else {
             player.tell(mobs.target(LOCAL_PLAYER), "I can't place coolant at this position!")
-        }
+        };
     }  
 
     /**
