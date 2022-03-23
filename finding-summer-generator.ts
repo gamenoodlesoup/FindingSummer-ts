@@ -366,9 +366,9 @@ namespace fs {
     }
 
     /**
-     * Pick up Magma Fuel in the d direction
+     * Pick up Nuclear Rod in the d direction
      */
-    //% block="Picking Magma Fuel %d"
+    //% block="Pick up Nuclear Rod %d"
     export function pickMagmaFuel(d: SixDirection): void {
 
         if (agent.inspect(AgentInspection.Block, d) == Block.MagmaBlock) {
@@ -384,9 +384,9 @@ namespace fs {
     }
 
     /**
-     * Place the Magma Fuel in the d direction
+     * Place the Nuclear Rod in the d direction
      */
-    //% block="Placing Magma Fuel %d"
+    //% block="Placing Nuclear Rod %d"
     export function placeMagmaFuel(d: SixDirection): void {
     
         if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == Block.MagmaBlock) {
@@ -394,7 +394,7 @@ namespace fs {
             agent.setSlot(1)
             agent.place(d);
         } else {
-            player.tell(mobs.target(LOCAL_PLAYER), "I don't have Magma Fuel to place!")
+            player.tell(mobs.target(LOCAL_PLAYER), "I don't have Nuclear Rod to place!")
         }
     }
 
