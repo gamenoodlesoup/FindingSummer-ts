@@ -365,6 +365,38 @@ namespace fs {
         }
     }
 
+    /**
+     * Pick up Magma Fuel in the d direction
+     */
+    //% block="Picking Magma Fuel %d"
+    export function pickMagmaFuel(d: SixDirection): void {
+
+        if (agent.inspect(AgentInspection.Block, d) == Block.MagmaBlock) {
+            agent.destroy(d);
+
+            let count_1 = 0;
+
+            if (agent.getItemDetail(1) == Block.MagmaBlock) {
+                count_1 = agent.getItemCount(1);
+            }
+            agent.setItem(Block.MagmaBlock, count_1 + 1, 1)
+        }
+    }
+
+    /**
+     * Place the Magma Fuel in the d direction
+     */
+    //% block="Placing Magma Fuel %d"
+    export function placeMagmaFuel(d: SixDirection): void {
+    
+        if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == Block.MagmaBlock) {
+            agent.setItem(Block.MagmaBlock, 1, 1)
+            agent.setSlot(1)
+            agent.place(d);
+        } else {
+            player.tell(mobs.target(LOCAL_PLAYER), "I don't have Magma Fuel to place!")
+        }
+    }
 
     // helper functions
     function shouldStop(): boolean {
