@@ -439,7 +439,6 @@ namespace fs {
     export function placeMagmaFuel(d: SixDirection): void {
     
         if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == Block.MagmaBlock) {
-            agent.setItem(Block.MagmaBlock, 1, 1)
             agent.setSlot(1)
             agent.place(d);
         } else {
