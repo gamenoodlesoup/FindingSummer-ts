@@ -635,7 +635,7 @@ namespace fs {
     /**
      * Place the Color BLock in the d direction
      */
-    //% block="Placing Color Block %d"
+    //% block="Placing Color %block %d"
     export function placeRocketColor(block: Rocket_Color, d: SixDirection): void {
     
         agent.setItem(block, 1, 1)
