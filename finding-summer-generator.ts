@@ -12,9 +12,7 @@ enum IronBlock {
 }
 
 enum Concrete_System {
-    //% blockIdentity="blocks.block" enumval=917740 block="Red Concrete"
-    //% jres alias=RED_CONCRETE
-    RedConcrete = Block.RedConcrete,
+
     //% blockIdentity="blocks.block" enumval=852204 block="Green Concrete"
     //% jres alias=GREEN_CONCRETE
     GreenConcrete = Block.GreenConcrete,
@@ -35,6 +33,57 @@ enum Ice {
     PackedIce = Block.PackedIce
 }
 
+enum Rocket_Color {
+    //% blockIdentity="blocks.block" enumval=236 block="White Concrete"
+    //% jres alias=WHITE_CONCRETE
+    WhiteConcrete = Block.WhiteConcrete,
+    //% blockIdentity="blocks.block" enumval=524524 block="LightGray Concrete"
+    //% jres alias=LIGHT_GRAY_CONCRETE
+    LightGrayConcrete = Block.LightGrayConcrete,
+    //% blockIdentity="blocks.block" enumval=458988 block="Gray Concrete"
+    //% jres alias=GRAY_CONCRETE
+    GrayConcrete = Block.GrayConcrete,
+    //% blockIdentity="blocks.block" enumval=983276 block="Black Concrete"
+    //% jres alias=BLACK_CONCRETE
+    BlackConcrete = Block.BlackConcrete,
+    //% blockIdentity="blocks.block" enumval=786668 block="Brown Concrete"
+    //% jres alias=BROWN_CONCRETE
+    BrownConcrete = Block.BrownConcrete,
+    //% blockIdentity="blocks.block" enumval=917740 block="Red Concrete"
+    //% jres alias=RED_CONCRETE
+    RedConcrete = Block.RedConcrete,
+    //% blockIdentity="blocks.block" enumval=65772 block="Orange Concrete"
+    //% jres alias=ORANGE_CONCRETE
+    OrangeConcrete = Block.OrangeConcrete,
+    //% blockIdentity="blocks.block" enumval=262380 block="Yellow Concrete"
+    //% jres alias=YELLOW_CONCRETE
+    YellowConcrete = Block.YellowConcrete,
+    //% blockIdentity="blocks.block" enumval=327916 block="Lime Concrete"
+    //% jres alias=LIME_CONCRETE
+    LimeConcrete = Block.LimeConcrete,
+    //% blockIdentity="blocks.block" enumval=852204 block="Green Concrete"
+    //% jres alias=GREEN_CONCRETE
+    GreenConcrete = Block.GreenConcrete,
+    //% blockIdentity="blocks.block" enumval=590060 block="Cyan Concrete"
+    //% jres alias=CYAN_CONCRETE
+    CyanConcrete = Block.CyanConcrete,
+    //% blockIdentity="blocks.block" enumval=196844 block="Light Blue Concrete"
+    //% jres alias=LIGHT_BLUE_CONCRETE
+    LightBlueConcrete = Block.LightBlueConcrete,
+    //% blockIdentity="blocks.block" enumval=721132 block="Blue Concrete"
+    //% jres alias=BLUE_CONCRETE
+    BlueConcrete = Block.BlueConcrete,
+    //% blockIdentity="blocks.block" enumval=655596 block="Purple Concrete"
+    //% jres alias=PURPLE_CONCRETE
+    PurpleConcrete = Block.PurpleConcrete,
+    //% blockIdentity="blocks.block" enumval=131308 block="Magenta Concrete"
+    //% jres alias=MAGENTA_CONCRETE
+    MagentaConcrete = Block.MagentaConcrete,
+    //% blockIdentity="blocks.block" enumval=393452 block="Pink Concrete"
+    //% jres alias=PINK_CONCRETE
+    PinkConcrete = Block.PinkConcrete,
+
+}
 
 // global variables
 const stopBlock = BEDROCK
@@ -396,6 +445,203 @@ namespace fs {
         } else {
             player.tell(mobs.target(LOCAL_PLAYER), "I don't have Nuclear Rod to place!")
         }
+    }
+
+    /**
+     * Pick up Color Block in the d direction
+     */
+    //% block="Pick up Color Block %d"
+    export function pickRocketColor(d: SixDirection): void {
+
+        if (checkBlockFromAgent(WHITE_CONCRETE, d)) {
+            agent.destroy(d);
+        
+            let count_1 = 0;
+        
+            if (agent.getItemDetail(1) == WHITE_CONCRETE) {
+                count_1 = agent.getItemCount(1);
+            }
+            agent.setItem(WHITE_CONCRETE, count_1 + 1, 1)
+        };
+
+        if (checkBlockFromAgent(LIGHT_GRAY_CONCRETE, d)) {
+            agent.destroy(d);
+        
+            let count_2 = 0;
+        
+            if (agent.getItemDetail(1) == LIGHT_GRAY_CONCRETE) {
+                count_2 = agent.getItemCount(2);
+            }
+            agent.setItem(LIGHT_GRAY_CONCRETE, count_2 + 1, 2)
+        };
+
+
+        if (checkBlockFromAgent(GRAY_CONCRETE, d)) {
+            agent.destroy(d);
+        
+            let count_3 = 0;
+        
+            if (agent.getItemDetail(1) == GRAY_CONCRETE) {
+                count_3 = agent.getItemCount(3);
+            }
+            agent.setItem(GRAY_CONCRETE, count_3 + 1, 3)
+        };
+        
+        if (checkBlockFromAgent(BLACK_CONCRETE, d)) {
+            agent.destroy(d);
+        
+            let count_4 = 0;
+        
+            if (agent.getItemDetail(1) == BLACK_CONCRETE) {
+                count_4 = agent.getItemCount(4);
+            }
+            agent.setItem(BLACK_CONCRETE, count_4 + 1, 4)
+        };
+        
+        if (checkBlockFromAgent(BROWN_CONCRETE, d)) {
+            agent.destroy(d);
+        
+            let count_5 = 0;
+        
+            if (agent.getItemDetail(1) == BROWN_CONCRETE) {
+                count_5 = agent.getItemCount(5);
+            }
+            agent.setItem(BROWN_CONCRETE, count_5 + 1, 5)
+        };
+        
+        if (checkBlockFromAgent(RED_CONCRETE, d)) {
+            agent.destroy(d);
+        
+            let count_6 = 0;
+        
+            if (agent.getItemDetail(1) == RED_CONCRETE) {
+                count_6 = agent.getItemCount(6);
+            }
+            agent.setItem(RED_CONCRETE, count_6 + 1, 6)
+        };
+
+        if (checkBlockFromAgent(ORANGE_CONCRETE, d)) {
+            agent.destroy(d);
+        
+            let count_7 = 0;
+        
+            if (agent.getItemDetail(1) == ORANGE_CONCRETE) {
+                count_7 = agent.getItemCount(7);
+            }
+            agent.setItem(ORANGE_CONCRETE, count_7 + 1, 7)
+        };
+
+        if (checkBlockFromAgent(YELLOW_CONCRETE, d)) {
+            agent.destroy(d);
+        
+            let count_8 = 0;
+        
+            if (agent.getItemDetail(1) == YELLOW_CONCRETE) {
+                count_8 = agent.getItemCount(8);
+            }
+            agent.setItem(YELLOW_CONCRETE, count_8 + 1, 8)
+        };
+
+        if (checkBlockFromAgent(LIME_CONCRETE, d)) {
+            agent.destroy(d);
+        
+            let count_9 = 0;
+        
+            if (agent.getItemDetail(1) == LIME_CONCRETE) {
+                count_9 = agent.getItemCount(9);
+            }
+            agent.setItem(LIME_CONCRETE, count_9 + 1, 9)
+        };
+
+        if (checkBlockFromAgent(GREEN_CONCRETE, d)) {
+            agent.destroy(d);
+        
+            let count_10 = 0;
+        
+            if (agent.getItemDetail(1) == GREEN_CONCRETE) {
+                count_10 = agent.getItemCount(10);
+            }
+            agent.setItem(GREEN_CONCRETE, count_10 + 1, 10)
+        };
+
+        if (checkBlockFromAgent(CYAN_CONCRETE, d)) {
+            agent.destroy(d);
+        
+            let count_11 = 0;
+        
+            if (agent.getItemDetail(1) == CYAN_CONCRETE) {
+                count_11 = agent.getItemCount(11);
+            }
+            agent.setItem(CYAN_CONCRETE, count_11 + 1, 11)
+        };
+
+        if (checkBlockFromAgent(LIGHT_BLUE_CONCRETE, d)) {
+            agent.destroy(d);
+        
+            let count_12 = 0;
+        
+            if (agent.getItemDetail(1) == LIGHT_BLUE_CONCRETE) {
+                count_12 = agent.getItemCount(12);
+            }
+            agent.setItem(LIGHT_BLUE_CONCRETE, count_12 + 1, 12)
+        };
+
+        if (checkBlockFromAgent(BLUE_CONCRETE, d)) {
+            agent.destroy(d);
+        
+            let count_13 = 0;
+        
+            if (agent.getItemDetail(1) == BLUE_CONCRETE) {
+                count_13 = agent.getItemCount(13);
+            }
+            agent.setItem(BLUE_CONCRETE, count_13 + 1, 13)
+        };
+
+        if (checkBlockFromAgent(PURPLE_CONCRETE, d)) {
+            agent.destroy(d);
+        
+            let count_14 = 0;
+        
+            if (agent.getItemDetail(1) == PURPLE_CONCRETE) {
+                count_14 = agent.getItemCount(14);
+            }
+            agent.setItem(PURPLE_CONCRETE, count_14 + 1, 14)
+        };
+
+        if (checkBlockFromAgent(MAGENTA_CONCRETE, d)) {
+            agent.destroy(d);
+        
+            let count_15 = 0;
+        
+            if (agent.getItemDetail(1) == MAGENTA_CONCRETE) {
+                count_15 = agent.getItemCount(15);
+            }
+            agent.setItem(MAGENTA_CONCRETE, count_15 + 1, 15)
+        };
+
+        if (checkBlockFromAgent(PINK_CONCRETE, d)) {
+            agent.destroy(d);
+        
+            let count_16 = 0;
+        
+            if (agent.getItemDetail(1) == PINK_CONCRETE) {
+                count_16 = agent.getItemCount(16);
+            }
+            agent.setItem(PINK_CONCRETE, count_16 + 1, 16)
+        };
+
+    }
+
+    /**
+     * Place the Color BLock in the d direction
+     */
+    //% block="Placing Color Block %d"
+    export function placeRocketColor(block: Rocket_Color, d: SixDirection): void {
+    
+        agent.setItem(block, 1, 1)
+        agent.setSlot(1)
+
+        agent.place(d);
     }
 
     // helper functions
