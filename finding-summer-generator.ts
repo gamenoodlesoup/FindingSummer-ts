@@ -438,12 +438,31 @@ namespace fs {
     //% block="Placing Nuclear Rod %d"
     export function placeMagmaFuel(d: SixDirection): void {
     
-        if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == Block.MagmaBlock) {
-            agent.setSlot(1)
-            agent.place(d);
-        } else {
-            player.tell(mobs.target(LOCAL_PLAYER), "I don't have Nuclear Rod to place!")
+        const check = [
+            world(2212, 45, -302)
+        ];
+
+        const dir = agent.getCardinalDirection(d);
+        const agentPos = agent.getPosition().move(dir, 1);
+        let canPlace = false;
+
+        for (const c of check) {
+            if (compareWorldPosition(agentPos,c)) {
+                canPlace = true;
+                break;
+            }
         }
+        
+        if (canPlace == true) {
+            if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == Block.MagmaBlock) {
+                agent.setSlot(1)
+                agent.place(d);
+            } else {
+                player.tell(mobs.target(LOCAL_PLAYER), "I don't have Nuclear Rod to place!")
+            }
+        } else {
+            player.tell(mobs.target(LOCAL_PLAYER), "I can't place Nuclear Rod at this position!")
+        };
     }
 
     /**
@@ -637,10 +656,33 @@ namespace fs {
     //% block="Placing Color %block %d"
     export function placeRocketColor(block: Rocket_Color, d: SixDirection): void {
     
-        agent.setItem(block, 1, 1)
-        agent.setSlot(1)
+        
+        const check = [
+            world(209, 10, -284),
+            world(214, 10, -284),
+            world(219, 10, -284)
+        ];
 
-        agent.place(d);
+        const dir = agent.getCardinalDirection(d);
+        const agentPos = agent.getPosition().move(dir, 1);
+        let canPlace = false;
+
+        for (const c of check) {
+            if (compareWorldPosition(agentPos,c)) {
+                canPlace = true;
+                break;
+            }
+        }
+
+        if (canPlace == true) {
+            agent.setItem(block, 1, 1)
+            agent.setSlot(1)
+
+            agent.place(d);
+        } else {
+            player.tell(mobs.target(LOCAL_PLAYER), "I can't place Color Block at this position!")
+        };
+
     }
 
     // helper functions
