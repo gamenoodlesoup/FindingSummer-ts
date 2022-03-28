@@ -693,13 +693,13 @@ namespace fs {
     /**
      * Let Agent move Foward and Back n blocks for i times.
      */
-    //% block="Count From %i to 0"
-    export function countDownLoop (i: number, n: number): void {
+    //% block="Count From %n to 0"
+    export function countDownLoop (n: number): void {
 
-        for (i >= n; i--;) {}
+        for (let i = 0; n >= i; n--) {}
 
     }
-    
+
     // helper functions
     function shouldStop(): boolean {
         return blocks.testForBlock(stopBlock, stopPosition);
