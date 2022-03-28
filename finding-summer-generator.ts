@@ -139,6 +139,7 @@ namespace fs {
         agent.turn(t);
     }  
 
+    // Week 1
     /**
      * Filling hole by placing block in the d direction
      * @param block the block
@@ -200,6 +201,7 @@ namespace fs {
     }
 
 
+    // Week 2
     /**
      * Pick up color coding block in the d direction
      */
@@ -414,6 +416,8 @@ namespace fs {
         }
     }
 
+
+    // Week 3
     /**
      * Pick up Nuclear Rod in the d direction
      */
@@ -685,6 +689,17 @@ namespace fs {
 
     }
 
+    // Week 4
+    /**
+     * Let Agent move Foward and Back n blocks for i times.
+     */
+    //% block="Count From %i to 0"
+    export function countDownLoop (i: number, n: number): void {
+
+        for (i >= n; i--;) {}
+
+    }
+    
     // helper functions
     function shouldStop(): boolean {
         return blocks.testForBlock(stopBlock, stopPosition);
