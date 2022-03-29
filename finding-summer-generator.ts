@@ -89,6 +89,8 @@ enum Rocket_Color {
 const stopBlock = BEDROCK
 const stopPosition = world(35,1,0)
 let counting = 0
+let junk = 0
+let spcaing = 0
 
 namespace agent {
     export function getCardinalDirection(d: SixDirection) : CardinalDirection {
@@ -140,7 +142,7 @@ namespace fs {
         agent.turn(t);
     }  
 
-    // Week 1
+// Week 1
     /**
      * Filling hole by placing block in the d direction
      * @param block the block
@@ -202,7 +204,7 @@ namespace fs {
     }
 
 
-    // Week 2
+// Week 2
     /**
      * Pick up color coding block in the d direction
      */
@@ -418,7 +420,7 @@ namespace fs {
     }
 
 
-    // Week 3
+// Week 3
     /**
      * Pick up Nuclear Rod in the d direction
      */
@@ -709,6 +711,74 @@ namespace fs {
         player.say(counting)
     }
 
+    /**
+     * Let Rocket(agent) lifting up n blocks.
+     */
+    //% block="Rocket Lifting Up %n"
+    export function rocketLift (n: number) {
+        agent.move(UP, n)
+    }
+
+    /**
+     * Let Rocket(agent) move left n blocks.
+     */
+    //% block="Rocket Move Left %n"
+    export function rocketLeft (n: number) {
+        agent.move(LEFT, n)
+        junk +=1
+    }
+
+    /**
+     * Let Rocket(agent) move right n blocks.
+     */
+    //% block="Rocket Move Right %n"
+    export function rocketRight (n: number) {
+        agent.move(RIGHT, n)
+        junk +=1
+    }
+
+    /**
+     * Let Agent report how many junk avoided.
+     */
+    //% block="Report Junk"
+    export function rocketReportJunk () {
+        player.say(junk)
+    }
+
+    /**
+     * Counting the spacing between the satellite
+     */
+    //% block="Spacing Left"
+    export function dockingLocateSpacing(): void  {
+
+        const dockingLoaction = world(1091, 45, -230);
+
+        spcaing = findSpacing(agent.getPosition().toWorld(), dockingLoaction)
+
+    }
+
+    /**
+     * Let Agent report how many spacing left between the satellite.
+     */
+    //% block="Report Spacing"
+    export function dockingReportSpcaing () {
+        player.say(spcaing)
+    }
+
+    /**
+     * Inspect underneath for airlock crack
+     */
+    //% block="Airlock Crack is Underneath"
+    export function airlockCrackLocate(): boolean {
+        if(shouldStop()) return false;
+
+        const inspected = agent.inspect(AgentInspection.Block, DOWN);
+
+        return inspected === Block.Air;
+
+    }
+
+
     // helper functions
     function shouldStop(): boolean {
         return blocks.testForBlock(stopBlock, stopPosition);
@@ -727,5 +797,16 @@ namespace fs {
         const checkPos = agent.getPosition().move(dir, 1);
 
         return blocks.testForBlock(block, checkPos)
+    }
+
+    function findSpacing(oldPos: Position, newPos: Position) {
+        let x = oldPos.getValue(Axis.X) - newPos.getValue(Axis.X);
+        let y = oldPos.getValue(Axis.Y) - newPos.getValue(Axis.Y);
+        let z = oldPos.getValue(Axis.Z) - newPos.getValue(Axis.Z);
+
+        return x;
+        return y;
+        return z;
+        
     }
 }
