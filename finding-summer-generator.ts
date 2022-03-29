@@ -88,6 +88,7 @@ enum Rocket_Color {
 // global variables
 const stopBlock = BEDROCK
 const stopPosition = world(35,1,0)
+let counting = 0
 
 namespace agent {
     export function getCardinalDirection(d: SixDirection) : CardinalDirection {
@@ -691,13 +692,21 @@ namespace fs {
 
     // Week 4
     /**
-     * Let Agent move Foward and Back n blocks for i times.
+     * Let Agent move Foward and Back n blocks.
      */
-    //% block="Count From %n to 0"
-    export function countDownLoop (n: number): void {
+    //% block="Move Foward and Back by %n"
+    export function countDownRun (n: number) {
+        agent.move(FORWARD, n)
+        agent.move(BACK, n)
+        counting -= 1
+    }
 
-        for (let i = 0; n >= i; n--) {}
-
+    /**
+     * Let Agent say the variable of counting.
+     */
+    //% block="Count Down"
+    export function countDownSay () {
+        player.say(counting)
     }
 
     // helper functions
