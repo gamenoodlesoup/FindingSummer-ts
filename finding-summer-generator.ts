@@ -88,7 +88,7 @@ enum Rocket_Color {
 // global variables
 const stopBlock = BEDROCK
 const stopPosition = world(35,1,0)
-let counting = 0
+// let counting = 0
 let junk = 0
 let spcaing = 0
 
@@ -696,19 +696,19 @@ namespace fs {
     /**
      * Let Agent move Foward and Back n blocks.
      */
-    //% block="Move Foward and Back by %n"
-    export function countDownRun (n: number) {
-        agent.move(FORWARD, n)
-        agent.move(BACK, n)
-        counting -= 1
+    //% block="Minus v by %seconds"
+    export function countDownRun (seconds: number) {
+        player.say(seconds)
+        agent.move(FORWARD, 6)
+        agent.move(BACK, 6)
     }
 
     /**
      * Let Agent say the variable of counting.
      */
-    //% block="Count Down"
-    export function countDownSay () {
-        player.say(counting)
+    //% block="Announce seconds"
+    export function countDownSay (seconds: number) {
+        seconds -=1
     }
 
     /**
@@ -751,7 +751,7 @@ namespace fs {
     //% block="Spacing Left"
     export function dockingLocateSpacing(): void  {
 
-        const dockingLoaction = world(1091, 45, -230);
+        const dockingLoaction = world(-2707, 55, -356);
 
         spcaing = findSpacing(agent.getPosition().toWorld(), dockingLoaction)
 
@@ -768,14 +768,59 @@ namespace fs {
     /**
      * Inspect underneath for airlock crack
      */
-    //% block="Airlock Crack is Underneath"
-    export function airlockCrackLocate(): boolean {
+    //% block="Airlock Crack is %d"
+    export function airlockCrackLocate(d:SixDirection): boolean {
         if(shouldStop()) return false;
 
-        const inspected = agent.inspect(AgentInspection.Block, DOWN);
+        const inspected = agent.inspect(AgentInspection.Block, d);
 
         return inspected === Block.Air;
 
+    }
+
+    /**
+     * Inspect d for airlock crack
+     */
+    //% block="Airlock Crack is %d"
+    export function airlockCrackRepair(d:SixDirection): void {
+
+        const check = [
+            world(-2640, 48, -363),
+            world(-2640, 48, -362),
+            world(-2640, 48, -361),
+
+            world(-2640, 51, -360),
+            world(-2640, 50, -360),
+            world(-2640, 49, -360),
+
+            world(-2640, 51, -364),
+            world(-2640, 50, -364),
+            world(-2640, 49, -364),
+
+            world(-2640, 52, -363),
+            world(-2640, 52, -362),
+            world(-2640, 52, -361)
+        ];
+
+        const dir = agent.getCardinalDirection(d);
+        const agentPos = agent.getPosition().move(dir, 1);
+        let canPlace = false;
+
+        for (const c of check) {
+            if (compareWorldPosition(agentPos,c)) {
+                canPlace = true;
+                break;
+            }
+        }
+
+        if (canPlace == true) {
+            agent.setItem(CONCRETE, 1, 1)
+            agent.setSlot(1)
+
+            agent.place(d);
+        } else {
+            player.tell(mobs.target(LOCAL_PLAYER), "This position is not a crack!")
+        };
     }
 
 
