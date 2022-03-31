@@ -91,6 +91,7 @@ const stopPosition = world(35,1,0)
 // let counting = 0
 let junk = 0
 let spcaing = 0
+let count = -1;
 
 namespace agent {
     export function getCardinalDirection(d: SixDirection) : CardinalDirection {
@@ -698,9 +699,11 @@ namespace fs {
      */
     //% block="Minus 1 seconds by %seconds"
     export function countDownRun (seconds: number) {
+        if (count == -1) count = seconds;
+
         agent.move(FORWARD, 6)
         agent.move(BACK, 6)
-        seconds -= 1
+        count = count - 1
     }
 
     /**
@@ -708,7 +711,7 @@ namespace fs {
      */
     //% block="Announce seconds %seconds"
     export function countDownSay (seconds: number) {
-        player.say(seconds)
+        player.say(count)
     }
 
     /**
