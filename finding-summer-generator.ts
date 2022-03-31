@@ -706,7 +706,7 @@ namespace fs {
     /**
      * Let Agent say the variable of counting.
      */
-    //% block="Announce seconds"
+    //% block="Announce seconds %seconds"
     export function countDownSay (seconds: number) {
         seconds -=1
     }
