@@ -694,21 +694,21 @@ namespace fs {
 
     // Week 4
     /**
-     * Let Agent move Foward and Back n blocks.
+     * Let Agent move Foward and Back to count down 1 second.
      */
-    //% block="Minus seconds by %seconds"
+    //% block="Minus 1 seconds by %seconds"
     export function countDownRun (seconds: number) {
         agent.move(FORWARD, 6)
         agent.move(BACK, 6)
-        player.say(seconds)
+        seconds -= 1
     }
 
     /**
-     * Let Agent say the variable of counting.
+     * Let Agent say the variable of seconds.
      */
     //% block="Announce seconds %seconds"
     export function countDownSay (seconds: number) {
-        seconds -=1
+        player.say(seconds)
     }
 
     /**
