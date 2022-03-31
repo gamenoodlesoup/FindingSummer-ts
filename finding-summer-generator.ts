@@ -696,11 +696,11 @@ namespace fs {
     /**
      * Let Agent move Foward and Back n blocks.
      */
-    //% block="Minus v by %seconds"
+    //% block="Minus seconds by %seconds"
     export function countDownRun (seconds: number) {
-        player.say(seconds)
         agent.move(FORWARD, 6)
         agent.move(BACK, 6)
+        player.say(seconds)
     }
 
     /**
