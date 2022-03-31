@@ -699,7 +699,7 @@ namespace fs {
      */
     //% block="Minus 1 seconds by %seconds"
     export function countDownRun (seconds: number) {
-       
+       if (count == -1) count = seconds;
         player.say(count)
         agent.move(FORWARD, 6)
         agent.move(BACK, 6)
@@ -711,7 +711,6 @@ namespace fs {
      */
     //% block="Announce seconds %seconds"
     export function countDownSay (seconds: number) {
-        if (count == -1) count = seconds;
         count = count - 1
     }
 
