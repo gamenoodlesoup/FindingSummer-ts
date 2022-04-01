@@ -727,6 +727,7 @@ namespace fs {
      */
     //% block="Move left to avoid %junk"
     export function rocketLeft (junk: number) {
+        if (count == -1) count = junk;
         agent.move(LEFT, 1)
         count = count + 1
     }
@@ -746,6 +747,7 @@ namespace fs {
      */
     //% block="Report junk %junk"
     export function rocketReportJunk (junk: number) {
+        // if (count == -1) count = junk;
         player.say(count)
     }
 
