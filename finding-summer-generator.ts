@@ -755,8 +755,10 @@ namespace fs {
      * Counting the spacing between the satellite
      */
     //% block="Spacing left"
-    export function dockingLocateSpacing(): void  {
+    export function dockingLocateSpacing(spcaing: number): void  {
 
+        if (count == -1) count = spcaing;
+        
         const dockingLoaction = world(-2707, 55, -356);
 
         spcaing = findSpacing(agent.getPosition().toWorld(), dockingLoaction)
