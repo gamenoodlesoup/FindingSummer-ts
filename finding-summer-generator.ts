@@ -757,11 +757,12 @@ namespace fs {
     //% block="Spacing left %spcaing"
     export function dockingLocateSpacing(spacing: number): void  {
 
-        if (count == -1) count = spacing;
-
+        
         const dockingLoaction = world(-2707, 55, -356);
 
         spacing = findSpacing(agent.getPosition().toWorld(), dockingLoaction)
+
+        if (count == -1) count = spacing;   
 
     }
 
@@ -770,7 +771,7 @@ namespace fs {
      */
     //% block="Report spacing %spacing"
     export function dockingReportSpacing (spacing: number) {
-        player.say(spacing)
+        player.say(count)
     }
 
     /**
