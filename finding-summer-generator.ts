@@ -760,7 +760,7 @@ namespace fs {
         
         const dockingLoaction = world(-2707, 55, -356);
 
-        spacing = findSpacing(agent.getPosition().toWorld(), dockingLoaction)
+        count = findSpacing(agent.getPosition().toWorld(), dockingLoaction)
 
         if (count == -1) count = spacing;   
 
