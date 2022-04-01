@@ -89,7 +89,7 @@ enum Rocket_Color {
 const stopBlock = BEDROCK
 const stopPosition = world(35,1,0)
 // let counting = 0
-let junk = 0
+// let junk = 0
 let spcaing = 0
 let count = -1;
 
@@ -717,41 +717,42 @@ namespace fs {
     /**
      * Let Rocket(agent) lifting up n blocks.
      */
-    //% block="Rocket Lifting Up %n"
+    //% block=" Moving up %n"
     export function rocketLift (n: number) {
         agent.move(UP, n)
     }
 
     /**
-     * Let Rocket(agent) move left n blocks.
+     * Let agent move left 1 block.
      */
-    //% block="Rocket Move Left %n"
-    export function rocketLeft (n: number) {
-        agent.move(LEFT, n)
-        junk +=1
+    //% block="Move left 1 block"
+    export function rocketLeft (junk: number) {
+        agent.move(LEFT, 1)
+        count = count + 1
     }
 
     /**
-     * Let Rocket(agent) move right n blocks.
+     * Let agent move right 1 block.
      */
-    //% block="Rocket Move Right %n"
-    export function rocketRight (n: number) {
-        agent.move(RIGHT, n)
-        junk +=1
+    //% block="Move right 1 block"
+    export function rocketRight (junk: number) {
+        if (count == -1) count = junk;
+        agent.move(RIGHT, 1)
+        count = count + 1
     }
 
     /**
      * Let Agent report how many junk avoided.
      */
-    //% block="Report Junk"
-    export function rocketReportJunk () {
-        player.say(junk)
+    //% block="Report junk"
+    export function rocketReportJunk (junk: number) {
+        player.say(count)
     }
 
     /**
      * Counting the spacing between the satellite
      */
-    //% block="Spacing Left"
+    //% block="Spacing left"
     export function dockingLocateSpacing(): void  {
 
         const dockingLoaction = world(-2707, 55, -356);
@@ -763,7 +764,7 @@ namespace fs {
     /**
      * Let Agent report how many spacing left between the satellite.
      */
-    //% block="Report Spacing"
+    //% block="Report spacing"
     export function dockingReportSpcaing () {
         player.say(spcaing)
     }
@@ -771,7 +772,7 @@ namespace fs {
     /**
      * Inspect underneath for airlock crack
      */
-    //% block="Airlock Crack is %d"
+    //% block="Airlock crack is %d"
     export function airlockCrackLocate(d:SixDirection): boolean {
         if(shouldStop()) return false;
 
@@ -782,9 +783,9 @@ namespace fs {
     }
 
     /**
-     * Inspect d for airlock crack
+     * Repair the airlock crack in the d direction
      */
-    //% block="Airlock Crack is %d"
+    //% block="Repair airlock crack %d"
     export function airlockCrackRepair(d:SixDirection): void {
 
         const check = [
