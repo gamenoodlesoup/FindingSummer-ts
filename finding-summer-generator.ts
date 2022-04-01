@@ -90,7 +90,7 @@ const stopBlock = BEDROCK
 const stopPosition = world(35,1,0)
 // let counting = 0
 // let junk = 0
-let spcaing = 0
+// let spcaing = 0
 let count = -1;
 
 namespace agent {
@@ -754,15 +754,13 @@ namespace fs {
     /**
      * Counting the spacing between the satellite
      */
-    //% block="Spacing left %spcaing"
+    //% block="Counting spaces left %spcaing"
     export function dockingLocateSpacing(spacing: number): void  {
-
+        if (count == -1) count = spacing;
         
         const dockingLoaction = world(-2707, 55, -356);
 
-        count = findSpacing(agent.getPosition().toWorld(), dockingLoaction)
-
-        if (count == -1) count = spacing;   
+        count = findSpacing(agent.getPosition().toWorld(), dockingLoaction)           
 
     }
 
