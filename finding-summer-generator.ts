@@ -715,7 +715,7 @@ namespace fs {
     }
 
     /**
-     * Let Rocket(agent) lifting up n blocks.
+     * Let agent moving up n blocks.
      */
     //% block=" Moving up %n"
     export function rocketLift (n: number) {
@@ -725,7 +725,7 @@ namespace fs {
     /**
      * Let agent move left 1 block.
      */
-    //% block="Move left 1 block"
+    //% block="Move left to avoid %junk"
     export function rocketLeft (junk: number) {
         agent.move(LEFT, 1)
         count = count + 1
@@ -734,7 +734,7 @@ namespace fs {
     /**
      * Let agent move right 1 block.
      */
-    //% block="Move right 1 block"
+    //% block="Move right to avoid %junk"
     export function rocketRight (junk: number) {
         if (count == -1) count = junk;
         agent.move(RIGHT, 1)
@@ -744,7 +744,7 @@ namespace fs {
     /**
      * Let Agent report how many junk avoided.
      */
-    //% block="Report junk"
+    //% block="Report junk %junk"
     export function rocketReportJunk (junk: number) {
         player.say(count)
     }
