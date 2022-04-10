@@ -837,15 +837,15 @@ namespace fs {
     //% block="Picking new chip %d"
     export function pickChip(d: SixDirection): void {
 
-        if (agent.inspect(AgentInspection.Block, d) == Block.CoalOre) {
+        if (agent.inspect(AgentInspection.Block, d) == Block.GoldOre) {
             agent.destroy(d);
 
             let count_1 = 0;
 
-            if (agent.getItemDetail(1) == Block.CoalOre) {
+            if (agent.getItemDetail(1) == Block.GoldOre) {
                 count_1 = agent.getItemCount(1);
             }
-            agent.setItem(Block.CoalOre, count_1 + 1, 1)
+            agent.setItem(Block.GoldOre, count_1 + 1, 1)
         }
     }
 
@@ -874,7 +874,7 @@ namespace fs {
         }
         
         if (canPlace == true) {
-            if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == Block.CoalOre) {
+            if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == Block.GoldOre) {
                 agent.setSlot(1)
                 agent.place(d);
             } else {
