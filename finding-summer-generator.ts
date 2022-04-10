@@ -917,6 +917,18 @@ namespace fs {
     }
 
     /**
+     * Inspect in the d direction for the broken chip
+     */
+    //% block="Chip %d is broken"
+    export function locateChip(d: SixDirection): boolean {
+        if(shouldStop()) return false;
+
+        const inspected = agent.inspect(AgentInspection.Block, d);
+
+        return inspected === Block.CoalOre;
+    }
+
+    /**
      * Inspect in the d direction for the virus agent
      */
     //% block="Virus Agent is %d"
