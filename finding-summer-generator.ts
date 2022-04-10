@@ -830,6 +830,120 @@ namespace fs {
         };
     }
 
+    // Week 5
+    /**
+     * Pick up new chip in the d direction
+     */
+    //% block="Picking new chip %d"
+    export function pickChip(d: SixDirection): void {
+
+        if (agent.inspect(AgentInspection.Block, d) == Block.CoalOre) {
+            agent.destroy(d);
+
+            let count_1 = 0;
+
+            if (agent.getItemDetail(1) == Block.CoalOre) {
+                count_1 = agent.getItemCount(1);
+            }
+            agent.setItem(Block.CoalOre, count_1 + 1, 1)
+        }
+    }
+
+    /**
+     * Place the new chip in the d direction
+     */
+    //% block="Placing new chip %d"
+    export function placeChip(d: SixDirection): void {
+    
+        const check = [
+            world(-2670, 93, -160),
+            world(-2669, 94, -160),
+            world(-2669, 95, -160),
+            world(-2670, 96, -160)
+        ];
+
+        const dir = agent.getCardinalDirection(d);
+        const agentPos = agent.getPosition().move(dir, 1);
+        let canPlace = false;
+
+        for (const c of check) {
+            if (compareWorldPosition(agentPos,c)) {
+                canPlace = true;
+                break;
+            }
+        }
+        
+        if (canPlace == true) {
+            if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == Block.CoalOre) {
+                agent.setSlot(1)
+                agent.place(d);
+            } else {
+                player.tell(mobs.target(LOCAL_PLAYER), "I don't have Chip to place!")
+            }
+        } else {
+            player.tell(mobs.target(LOCAL_PLAYER), "I can't place the Chip at this position!")
+        };
+    }
+
+        /**
+     * Break the broken chip in the d direction
+     */
+    //% block="Breaking broken chip %d"
+    export function breakOldChip(d: SixDirection): void {
+    
+        const check = [
+            world(-2670, 93, -160),
+            world(-2669, 94, -160),
+            world(-2669, 95, -160),
+            world(-2670, 96, -160)
+        ];
+
+        const dir = agent.getCardinalDirection(d);
+        const agentPos = agent.getPosition().move(dir, 1);
+        let canBreak = false;
+
+        for (const c of check) {
+            if (compareWorldPosition(agentPos,c)) {
+                canBreak = true;
+                break;
+            }
+        }
+        
+        if (canBreak == true) {
+            agent.destroy(d)
+        } else {
+            player.tell(mobs.target(LOCAL_PLAYER), "This Chip do not need to change!")
+        };
+    }
+
+    /**
+     * Inspect in the d direction for the virus agent
+     */
+    //% block="Virus Agent is %d"
+    export function locateAgent(d: SixDirection): boolean {
+        if(shouldStop()) return false;
+
+        const inspected = agent.inspect(AgentInspection.Block, d);
+
+        return inspected === Block.LapisOre;
+    }
+
+    /**
+     * Break the crack in the d direction to get the agent out
+     */
+    //% block="Find agent %d"
+    export function getAgent(d: SixDirection): void {
+        if(shouldStop()) return;
+        
+        const inspected = agent.inspect(AgentInspection.Block, d);
+
+        if (inspected == Block.LapisOre){
+            agent.destroy(d);
+        } else {
+            player.tell(mobs.target(LOCAL_PLAYER), "The virus agent is not here!")
+        }
+    }
+
 
     // helper functions
     function shouldStop(): boolean {
