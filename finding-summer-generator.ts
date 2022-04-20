@@ -970,7 +970,7 @@ namespace fs {
     }
 
     /**
-     * Open the gatte in the d direction
+     * Open the gate in the d direction
      */
     //% block="Open gate %d"
     export function openGate(d: SixDirection): void {
