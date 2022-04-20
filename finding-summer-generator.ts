@@ -885,7 +885,7 @@ namespace fs {
         };
     }
 
-        /**
+    /**
      * Break the broken chip in the d direction
      */
     //% block="Breaking broken chip %d"
@@ -956,6 +956,131 @@ namespace fs {
         }
     }
 
+    // Week 6
+    /**
+     * Inspect in the d direction for the gate
+     */
+    //% block="Gate %d need open"
+    export function locateGate(d: SixDirection): boolean {
+        if(shouldStop()) return false;
+
+        const inspected = agent.inspect(AgentInspection.Block, d);
+
+        return inspected === Block.WoodenTrapdoor;
+    }
+
+    /**
+     * Open the gatte in the d direction
+     */
+    //% block="Open gate %d"
+    export function openGate(d: SixDirection): void {
+        if(shouldStop()) return;
+
+        const check = [
+            world(-2643, 114, -168),
+            world(-2643, 114, -176),
+            world(-2643, 113, -172),
+            world(-2643, 109, -175),
+            world(-2643, 108, -173),
+            world(-2643, 108, -170),
+            world(-2643, 106, -169)
+
+        ];
+
+        const dir = agent.getCardinalDirection(d);
+        const agentPos = agent.getPosition().move(dir, 1);
+        let canBreak = false;
+
+        for (const c of check) {
+            if (compareWorldPosition(agentPos,c)) {
+                canBreak = true;
+                break;
+            }
+        }
+        
+        if (canBreak == true) {
+            agent.destroy(d)
+        } else {
+            player.tell(mobs.target(LOCAL_PLAYER), "This is not a gate!")
+        };
+    }
+
+    /**
+     * Place the new wire in the d direction
+     */
+    //% block="Placing new wire %d"
+    export function placeWire(d: SixDirection): void {
+    
+        const check = [
+            world(-2669, 114, -182),
+            world(-2672, 114, -182),
+            world(-2676, 114, -182)
+        ];
+
+        const dir = agent.getCardinalDirection(d);
+        const agentPos = agent.getPosition().move(dir, 1);
+        let canPlace = false;
+
+        for (const c of check) {
+            if (compareWorldPosition(agentPos,c)) {
+                canPlace = true;
+                break;
+            }
+        }
+        
+        if (canPlace == true) {
+            if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == Block.GoldOre) {
+                agent.setSlot(1)
+                agent.place(d);
+            } else {
+                player.tell(mobs.target(LOCAL_PLAYER), "I don't have Chip to place!")
+            }
+        } else {
+            player.tell(mobs.target(LOCAL_PLAYER), "I can't place the wire at this position!")
+        };
+    }
+
+    /**
+     * Break the broken wire in the d direction
+     */
+    //% block="Breaking broken wire %d"
+    export function breakWire(d: SixDirection): void {
+    
+        const check = [
+            world(-2669, 114, -182),
+            world(-2672, 114, -182),
+            world(-2676, 114, -182)
+        ];
+
+        const dir = agent.getCardinalDirection(d);
+        const agentPos = agent.getPosition().move(dir, 1);
+        let canBreak = false;
+
+        for (const c of check) {
+            if (compareWorldPosition(agentPos,c)) {
+                canBreak = true;
+                break;
+            }
+        }
+        
+        if (canBreak == true) {
+            agent.destroy(d)
+        } else {
+            player.tell(mobs.target(LOCAL_PLAYER), "This wire do not need to change!")
+        };
+    }
+
+    /**
+     * Inspect in the d direction for the broken wire
+     */
+    //% block="Wire %d need change"
+    export function locateWire(d: SixDirection): boolean {
+        if(shouldStop()) return false;
+
+        const inspected = agent.inspect(AgentInspection.Block, d);
+
+        return inspected === Block.QuartzOre;
+    }
 
     // helper functions
     function shouldStop(): boolean {
