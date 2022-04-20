@@ -1029,12 +1029,9 @@ namespace fs {
         }
         
         if (canPlace == true) {
-            if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == Block.GoldOre) {
-                agent.setSlot(1)
-                agent.place(d);
-            } else {
-                player.tell(mobs.target(LOCAL_PLAYER), "I don't have Chip to place!")
-            }
+            agent.setItem(QUARTZ_ORE, 64, 1)
+            agent.setSlot(1)
+            agent.place(d);
         } else {
             player.tell(mobs.target(LOCAL_PLAYER), "I can't place the wire at this position!")
         };
