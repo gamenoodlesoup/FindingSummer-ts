@@ -1029,7 +1029,7 @@ namespace fs {
         }
         
         if (canPlace == true) {
-            agent.setItem(QUARTZ_ORE, 64, 1)
+            agent.setItem(SOUL_SAND, 64, 1)
             agent.setSlot(1)
             agent.place(d);
         } else {
