@@ -1012,9 +1012,13 @@ namespace fs {
     export function placeWire(d: SixDirection): void {
     
         const check = [
-            world(-2669, 114, -182),
-            world(-2672, 114, -182),
-            world(-2676, 114, -182)
+            world(-2662, 102, -179),
+            world(-2667, 102, -179),
+            world(-2670, 102, -179),
+            world(-2673, 102, -179),
+            world(-2674, 102, -179),
+            world(-2679, 102, -179),
+            world(-2682, 102, -179)
         ];
 
         const dir = agent.getCardinalDirection(d);
@@ -1044,9 +1048,13 @@ namespace fs {
     export function breakWire(d: SixDirection): void {
     
         const check = [
-            world(-2669, 114, -182),
-            world(-2672, 114, -182),
-            world(-2676, 114, -182)
+            world(-2662, 102, -179),
+            world(-2667, 102, -179),
+            world(-2670, 102, -179),
+            world(-2673, 102, -179),
+            world(-2674, 102, -179),
+            world(-2679, 102, -179),
+            world(-2682, 102, -179)
         ];
 
         const dir = agent.getCardinalDirection(d);
