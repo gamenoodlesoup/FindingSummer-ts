@@ -13,17 +13,17 @@ enum IronBlock {
 
 enum Block_System {
 
-    //% blockIdentity="blocks.block" enumval=852204 block="Green Concrete"
-    //% jres alias=GREEN_CONCRETE
+    //% 
+    //% 
     EMERALD_BLOCK = Block.EmeraldBlock,
-    //% blockIdentity="blocks.block" enumval=721132 block="Blue Concrete"
-    //% jres alias=BLUE_CONCRETE
+    //% 
+    //% 
     LAPIS_LAZULI_BLOCK = Block.LapisLazuliBlock,
-    //% blockIdentity="blocks.block" enumval=262380 block="Yellow Concrete"
-    //% jres alias=YELLOW_CONCRETE
+    //% 
+    //% 
     GOLD_BLOCK = Block.GoldBlock,
-    //
-    //
+    //% 
+    //% 
     REDSTONE_BLOCK = Block.RedstoneBlock
 }
 
@@ -562,7 +562,7 @@ namespace fs {
                 agent.setSlot(1)
                 agent.place(d);
                 count_2 = count_1 -1  
-            agent.setItem(Block.EndRod, count_2, 1)
+            agent.setItem(Block.MagmaBlock, count_2, 1)
             if (count_1 == 1){ 
              agent.setItem(Block.Air, count_1 +1  , 1) 
             } 
