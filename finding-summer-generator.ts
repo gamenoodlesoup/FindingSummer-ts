@@ -11,17 +11,20 @@ enum IronBlock {
     IronBlock = Block.IronBlock
 }
 
-enum Concrete_System {
+enum Block_System {
 
     //% blockIdentity="blocks.block" enumval=852204 block="Green Concrete"
     //% jres alias=GREEN_CONCRETE
-    GreenConcrete = Block.GreenConcrete,
+    EMERALD_BLOCK = Block.EmeraldBlock,
     //% blockIdentity="blocks.block" enumval=721132 block="Blue Concrete"
     //% jres alias=BLUE_CONCRETE
-    BlueConcrete = Block.BlueConcrete,
+    LAPIS_LAZULI_BLOCK = Block.LapisLazuliBlock,
     //% blockIdentity="blocks.block" enumval=262380 block="Yellow Concrete"
     //% jres alias=YELLOW_CONCRETE
-    YellowConcrete = Block.YellowConcrete
+    GOLD_BLOCK = Block.GoldBlock,
+    //
+    //
+    REDSTONE_BLOCK = Block.RedstoneBlock
 }
 
 enum Ice {
@@ -210,51 +213,44 @@ namespace fs {
      * Pick up color coding block in the d direction
      */
     //% block="Picking Color Coding Block %d"
-    export function pickColorBlock(d: SixDirection): void {
-
-        if (checkBlockFromAgent(RED_CONCRETE, d)) {
+    export function pickBlock(d: SixDirection) {
+        let count_1 = 0;
+        let count_2 = 0;
+        let count_3 = 0;
+        let count_4 = 0;
+        if (agent.inspect(AgentInspection.Block, d) == Block.GoldBlock) {
             agent.destroy(d);
-
-            let count_1 = 0;
-
-            if (agent.getItemDetail(1) == RED_CONCRETE) {
+            if (agent.getItemDetail(1) == Block.GoldBlock) {
                 count_1 = agent.getItemCount(1);
             }
-            agent.setItem(RED_CONCRETE, count_1 + 1, 1)
+            agent.setItem(Block.GoldBlock, count_1 + 1, 1)
         };
 
-        if (checkBlockFromAgent(BLUE_CONCRETE, d)) {
+        if (agent.inspect(AgentInspection.Block, d) == Block.RedstoneBlock) {
             agent.destroy(d);
-
-            let count_2 = 0;
-
-            if (agent.getItemDetail(2) == BLUE_CONCRETE) {
-                count_2 = agent.getItemCount(1);
+            if (agent.getItemDetail(2) == Block.RedstoneBlock) {
+                count_2 = agent.getItemCount(2);
             }
-            agent.setItem(BLUE_CONCRETE, count_2 + 1, 2)
+            agent.setItem(Block.RedstoneBlock, count_2 + 1, 2)
         };
 
-        if (checkBlockFromAgent(GREEN_CONCRETE, d)) {
+        if (agent.inspect(AgentInspection.Block, d) == Block.LapisLazuliBlock) {
             agent.destroy(d);
-
-            let count_3 = 0;
-
-            if (agent.getItemDetail(3) == GREEN_CONCRETE) {
-                count_3 = agent.getItemCount(1);
+            if (agent.getItemDetail(3) == Block.LapisLazuliBlock) {
+                count_3 = agent.getItemCount(3);
             }
-            agent.setItem(GREEN_CONCRETE, count_3 + 1, 3)
+            agent.setItem(Block.LapisLazuliBlock, count_3 + 1, 3)
         };
 
-        if (checkBlockFromAgent(YELLOW_CONCRETE, d)) {
+
+        if (agent.inspect(AgentInspection.Block, d) == Block.EmeraldBlock) {
             agent.destroy(d);
-
-            let count_4 = 0;
-
-            if (agent.getItemDetail(4) == YELLOW_CONCRETE) {
-                count_4 = agent.getItemCount(1);
+            if (agent.getItemDetail(4) == Block.EmeraldBlock) {
+                count_4 = agent.getItemCount(4);
             }
-            agent.setItem(YELLOW_CONCRETE, count_4 + 1, 4)
+            agent.setItem(Block.EmeraldBlock, count_4 + 1, 4)
         };
+
     }
 
     /**
@@ -262,14 +258,59 @@ namespace fs {
      * @param block the block
      */    
     //% block="Placing %block %d"
-    export function repairIgnition(block: Concrete_System, d: SixDirection): void {
+    export function repairIgnition(block: Block_System, d: SixDirection): void {
+
+
         if(shouldStop()) return;
 
-        agent.setItem(block, 1, 1)
-        agent.setSlot(1)
+        const check = [
+            world(1083 ,46 ,-291), 
+            world(1079 ,46 ,-291), 
+            world(1079 ,46 ,-295), 
+            world(1083 ,46 ,-295), 
+        ];
 
-        agent.place(d);
-    }  
+        const dir = agent.getCardinalDirection(d);
+        const agentPos = agent.getPosition().move(dir, 1);
+        let canPlace = false;
+
+        for (const c of check) {
+            if (compareWorldPosition(agentPos,c)) {
+                canPlace = true;
+                break;
+            }
+        }
+
+        if (canPlace == true) {
+            let count_1 = 0
+            let count_2 = 0
+            let count_3 = 0
+            let count_4 = 0
+            player.tell(mobs.target(LOCAL_PLAYER), block)
+            if (agent.getItemCount(1) > 0  && agent.getItemDetail(1) == block) {
+                agent.setSlot(1)
+                agent.place(d)
+                agent.setItem(Block.Air , count_1 + 1 , 1);
+            } else if (agent.getItemCount(2) > 0 && agent.getItemDetail(2) == block) {
+                agent.setSlot(2)
+                agent.place(d)
+                agent.setItem(Block.Air , count_2 + 1 , 2);
+            } else if (agent.getItemCount(3) > 0  && agent.getItemDetail(3) == block) {
+                agent.setSlot(3)
+                agent.place(d)
+                agent.setItem(Block.Air , count_3 + 1 , 3);
+            } else if (agent.getItemCount(4) > 0  && agent.getItemDetail(4) == block) {
+                agent.setSlot(4)
+                agent.place(d)
+                agent.setItem(Block.Air , count_4 + 1 , 4);
+            } else {
+                player.tell(mobs.target(LOCAL_PLAYER), "I don't have Block to place!")
+            }             
+
+        } else {
+            player.tell(mobs.target(LOCAL_PLAYER), "I can't place Block at this position!")
+        }
+}
 
     /**
      * Pick up fuel in the d direction
@@ -302,10 +343,18 @@ namespace fs {
         }
         
         if (canPlace == true) {
+            let count_1 = agent.getItemCount(1) 
+            let count_2 = 0 
             if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == BUCKET) {
+                    agent.setItem(BUCKET,count_2 , 1)
                     agent.setItem(LAVA_BUCKET, 1, 2)
                     agent.setSlot(2)
                     agent.place(DOWN)
+                     count_2 = count_1 -1
+                    if (count_1 == 1){ 
+                    agent.setItem(Block.Air, count_1 +1  , 1) 
+                } 
+                    count_1 = count_2
                 } else {
                     player.tell(mobs.target(LOCAL_PLAYER), "I don't have LavaBucket to place Lava!")
                 }
@@ -318,29 +367,58 @@ namespace fs {
      * Pick up coolant in the d direction
      */
     //% block="Picking Coolant %d"
-    export function pickCoolant(d: SixDirection): void {
+    export function placeCoolant(block: Ice, d: SixDirection): void {
+        if(shouldStop()) return;
 
-        if (agent.inspect(AgentInspection.Block, d) == Block.BlueIce) {
-            agent.destroy(d);
+        const check = [
+            world(1058, 50, -265), 
+            world(1058, 49, -265), 
+            world(1058, 48, -265), 
+            world(1058, 47, -265), 
+            world(1058, 46, -265)
+        ];
 
-            let count_1 = 0;
+        const dir = agent.getCardinalDirection(d);
+        const agentPos = agent.getPosition().move(dir, 1);
+        let canPlace = false;
 
-            if (agent.getItemDetail(1) == Block.BlueIce) {
-                count_1 = agent.getItemCount(1);
+        for (const c of check) {
+            if (compareWorldPosition(agentPos,c)) {
+                canPlace = true;
+                break;
             }
-            agent.setItem(Block.BlueIce, count_1 + 1, 1)
+        }
+
+        if (canPlace == true) {
+            let count_1 = agent.getItemCount(1)
+            let count_2 = agent.getItemCount(2)
+            let count_3 = 0
+            if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == block) {
+                agent.setSlot(1)
+                agent.place(d)
+                count_3 = count_1 -1 
+                agent.setItem(Block.BlueIce, count_3 , 1)
+                if (count_1 == 1){
+                   agent.setItem(Block.Air, count_1 +1  , 1)
+                }
+                count_1 = count_3
+            } else if (agent.getItemCount(2) > 0 && agent.getItemDetail(2) == block) {
+                agent.setSlot(2)
+                agent.place(d);
+                count_3 = count_2 -1 
+                agent.setItem(Block.PackedIce, count_3 , 2)
+                if (count_2 == 1){
+                   agent.setItem(Block.Air, count_2 +1, 2)
+                }
+                count_2 = count_3
+            } else {
+                player.tell(mobs.target(LOCAL_PLAYER), "I don't have coolant to place!")
+            }             
+
+        } else {
+            player.tell(mobs.target(LOCAL_PLAYER), "I can't place coolant at this position!")
         };
 
-        if (agent.inspect(AgentInspection.Block, d) == Block.PackedIce) {
-            agent.destroy(d);
-
-            let count_2 = 0;
-            
-            if (agent.getItemDetail(2) == Block.PackedIce) {
-                count_2 = agent.getItemCount(2);
-            }
-            agent.setItem(Block.PackedIce, count_2 + 1, 2)
-        };
     }
 
     /**
@@ -410,17 +488,47 @@ namespace fs {
      */
     //% block="Placing Receiver %d"
     export function placeReceiver(d: SixDirection): void {
-    
-        if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == Block.EndRod) {
-            agent.setItem(Block.EndRod, 1, 1)
+
+        if(shouldStop()) return; 
+
+        const check = [ 
+
+            world(1112, 46, -267 ),  
+
+            world(1117, 46, -267 ),  
+
+            world(1117, 46, -259 ),  
+
+            world(1112, 46, -259 ),   
+ ]; 
+        const dir = agent.getCardinalDirection(d); 
+        const agentPos = agent.getPosition().move(dir, 1); 
+        let canPlace = false;
+        for (const c of check) {
+            if (compareWorldPosition(agentPos,c)) {
+                canPlace = true;
+                break;
+            }
+        }
+        if (canPlace == true) {
+         let count_1 = agent.getItemCount(1)
+         let count_2 = 0
+         if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == Block.EndRod) {
             agent.setSlot(1)
-            agent.place(d);
-        } else {
+            agent.place(d)
+            count_2 = count_1 -1  
+            agent.setItem(Block.EndRod, count_2, 1)
+            if (count_1 == 1){ 
+             agent.setItem(Block.Air, count_1 +1  , 1) 
+            } 
+            count_1 = count_2
+         } else {
             player.tell(mobs.target(LOCAL_PLAYER), "I don't have receiver to place!")
+         }
+        }else {
+             player.tell(mobs.target(LOCAL_PLAYER), "I can't place receiver at this position!") 
         }
     }
-
-
 // Week 3
     /**
      * Pick up Nuclear Rod in the d direction
