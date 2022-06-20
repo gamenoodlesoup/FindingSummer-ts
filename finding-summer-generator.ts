@@ -420,12 +420,27 @@ namespace fs {
         }
 
         if (canPlace == true) {
+            let count_1 = agent.getItemCount(1)
+            let count_2 = agent.getItemCount(2)
+            let count_3 = 0
             if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == block) {
                 agent.setSlot(1)
-                agent.place(d);
+                agent.place(d)
+                count_3 = count_1 -1 
+                agent.setItem(Block.BlueIce, count_3 , 1)
+                if (count_1 == 1){
+                   agent.setItem(Block.Air, count_1 +1  , 1)
+                }
+                count_1 = count_3
             } else if (agent.getItemCount(2) > 0 && agent.getItemDetail(2) == block) {
                 agent.setSlot(2)
                 agent.place(d);
+                count_3 = count_2 -1 
+                agent.setItem(Block.PackedIce, count_3 , 2)
+                if (count_2 == 1){
+                   agent.setItem(Block.Air, count_2 +1, 2)
+                }
+                count_2 = count_3
             } else {
                 player.tell(mobs.target(LOCAL_PLAYER), "I don't have coolant to place!")
             }             
@@ -541,10 +556,18 @@ namespace fs {
         }
         
         if (canPlace == true) {
+            let count_1 = agent.getItemCount(1)
+            let count_2 = 0
             if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == Block.MagmaBlock) {
                 agent.setSlot(1)
                 agent.place(d);
-            } else {
+                count_2 = count_1 -1  
+            agent.setItem(Block.EndRod, count_2, 1)
+            if (count_1 == 1){ 
+             agent.setItem(Block.Air, count_1 +1  , 1) 
+            } 
+            count_1 = count_2
+         } else {
                 player.tell(mobs.target(LOCAL_PLAYER), "I don't have Nuclear Rod to place!")
             }
         } else {
