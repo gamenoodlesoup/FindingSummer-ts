@@ -153,12 +153,35 @@ namespace fs {
      */    
     //% block="Filling hole by %block %d"
     export function fillHole(block: Concrete, d: SixDirection): void {
+
         if(shouldStop()) return;
 
+        onst check = [
+            world(1214 ,60 ,-302), 
+            world(1213 ,60 ,-304), 
+            world(1211 ,60 ,-306), 
+            world(1214 ,60 ,-306),
+            world(1210 ,62 ,-303), 
+        ];
+
+        const dir = agent.getCardinalDirection(d);
+        const agentPos = agent.getPosition().move(dir, 1);
+        let canPlace = false;
+
+        for (const c of check) {
+            if (compareWorldPosition(agentPos,c)) {
+                canPlace = true;
+                break;
+            }
+        }
+        if (canPlace == true) {
         agent.setItem(block, 1, 1)
         agent.setSlot(1)
 
         agent.place(d);
+        } else {
+        player.tell(mobs.target(LOCAL_PLAYER), "I can't fill at this position!")
+        }
     }  
 
     /**
