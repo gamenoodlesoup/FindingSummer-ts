@@ -156,7 +156,7 @@ namespace fs {
 
         if(shouldStop()) return;
 
-        onst check = [
+        const check = [
             world(1214 ,60 ,-302), 
             world(1213 ,60 ,-304), 
             world(1211 ,60 ,-306), 
