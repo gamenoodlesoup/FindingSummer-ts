@@ -854,7 +854,7 @@ namespace fs {
                 agent.setSlot(4)
                 agent.place(d);
                 count_18 = count_4 -1 ;
-                agent.setItemBlock.BlackConcrete, count_18 , 2)
+                agent.setItem(Block.BlackConcrete, count_18 , 2)
                 if (count_4 == 1){
                    agent.setItem(Block.Air, count_4 +1, 2)
                 }
