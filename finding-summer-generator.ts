@@ -305,10 +305,10 @@ namespace fs {
         }
 
         if (canPlace == true) {
-            let count_1 = 0
-            let count_2 = 0
-            let count_3 = 0
-            let count_4 = 0
+            let count_1 = 0;
+            let count_2 = 0;
+            let count_3 = 0;
+            let count_4 = 0;
             player.tell(mobs.target(LOCAL_PLAYER), block)
             if (agent.getItemCount(1) > 0  && agent.getItemDetail(1) == block) {
                 agent.setSlot(1)
@@ -366,18 +366,18 @@ namespace fs {
         }
         
         if (canPlace == true) {
-            let count_1 = agent.getItemCount(1) 
-            let count_2 = 0 
+            let count_1 = agent.getItemCount(1) ;
+            let count_2 = 0 ;
             if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == BUCKET) {
                     agent.setItem(BUCKET,count_2 , 1)
                     agent.setItem(LAVA_BUCKET, 1, 2)
                     agent.setSlot(2)
                     agent.place(DOWN)
-                     count_2 = count_1 -1
+                     count_2 = count_1 -1;
                     if (count_1 == 1){ 
                     agent.setItem(Block.Air, count_1 +1  , 1) 
                 } 
-                    count_1 = count_2
+                    count_1 = count_2;
                 } else {
                     player.tell(mobs.target(LOCAL_PLAYER), "I don't have LavaBucket to place Lava!")
                 }
@@ -443,27 +443,27 @@ namespace fs {
         }
 
         if (canPlace == true) {
-            let count_1 = agent.getItemCount(1)
-            let count_2 = agent.getItemCount(2)
-            let count_3 = 0
+            let count_1 = agent.getItemCount(1);
+            let count_2 = agent.getItemCount(2);
+            let count_3 = 0;
             if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == block) {
                 agent.setSlot(1)
                 agent.place(d)
-                count_3 = count_1 -1 
+                count_3 = count_1 -1 ;
                 agent.setItem(Block.BlueIce, count_3 , 1)
                 if (count_1 == 1){
                    agent.setItem(Block.Air, count_1 +1  , 1)
                 }
-                count_1 = count_3
+                count_1 = count_3;
             } else if (agent.getItemCount(2) > 0 && agent.getItemDetail(2) == block) {
                 agent.setSlot(2)
                 agent.place(d);
-                count_3 = count_2 -1 
+                count_3 = count_2 -1 ;
                 agent.setItem(Block.PackedIce, count_3 , 2)
                 if (count_2 == 1){
                    agent.setItem(Block.Air, count_2 +1, 2)
                 }
-                count_2 = count_3
+                count_2 = count_3;
             } else {
                 player.tell(mobs.target(LOCAL_PLAYER), "I don't have coolant to place!")
             }             
@@ -520,17 +520,17 @@ namespace fs {
             }
         }
         if (canPlace == true) {
-         let count_1 = agent.getItemCount(1)
-         let count_2 = 0
+         let count_1 = agent.getItemCount(1);
+         let count_2 = 0;
          if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == Block.EndRod) {
             agent.setSlot(1)
             agent.place(d)
-            count_2 = count_1 -1  
+            count_2 = count_1 -1  ;
             agent.setItem(Block.EndRod, count_2, 1)
             if (count_1 == 1){ 
              agent.setItem(Block.Air, count_1 +1  , 1) 
             } 
-            count_1 = count_2
+            count_1 = count_2;
          } else {
             player.tell(mobs.target(LOCAL_PLAYER), "I don't have receiver to place!")
          }
@@ -579,17 +579,17 @@ namespace fs {
         }
         
         if (canPlace == true) {
-            let count_1 = agent.getItemCount(1)
-            let count_2 = 0
+            let count_1 = agent.getItemCount(1);
+            let count_2 = 0;
             if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == Block.MagmaBlock) {
                 agent.setSlot(1)
                 agent.place(d);
-                count_2 = count_1 -1  
+                count_2 = count_1 -1 ;
             agent.setItem(Block.MagmaBlock, count_2, 1)
             if (count_1 == 1){ 
              agent.setItem(Block.Air, count_1 +1  , 1) 
             } 
-            count_1 = count_2
+            count_1 = count_2;
          } else {
                 player.tell(mobs.target(LOCAL_PLAYER), "I don't have Nuclear Rod to place!")
             }
@@ -807,167 +807,166 @@ namespace fs {
         }
 
         if (canPlace == true) {
-            let count_1 = agent.getItemCount(1)
-            let count_2 = agent.getItemCount(2)
-            let count_3 = agent.getItemCount(3)
-            let count_4 = agent.getItemCount(4)
-            let count_5 = agent.getItemCount(5)
-            let count_6 = agent.getItemCount(6)
-            let count_7 = agent.getItemCount(7)
-            let count_8 = agent.getItemCount(8)
-            let count_9 = agent.getItemCount(9)
-            let count_10 = agent.getItemCount(10)
-            let count_11 = agent.getItemCount(11)
-            let count_12 = agent.getItemCount(12)
-            let count_13 = agent.getItemCount(13)
-            let count_14 = agent.getItemCount(14)
-            let count_15 = agent.getItemCount(15)
-            let count_16 = agent.getItemCount(16)
-            let count_18 = 0        
+            let count_1 = agent.getItemCount(1);
+            let count_2 = agent.getItemCount(2);
+            let count_3 = agent.getItemCount(3);
+            let count_4 = agent.getItemCount(4);
+            let count_5 = agent.getItemCount(5);
+            let count_6 = agent.getItemCount(6);
+            let count_7 = agent.getItemCount(7);
+            let count_8 = agent.getItemCount(8);
+            let count_9 = agent.getItemCount(9);
+            let count_10 = agent.getItemCount(10);
+            let count_11 = agent.getItemCount(11);
+            let count_13 = agent.getItemCount(13);
+            let count_14 = agent.getItemCount(14);
+            let count_15 = agent.getItemCount(15);
+            let count_16 = agent.getItemCount(16);
+            let count_18 = 0 ;      
             if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == block) {
                 agent.setSlot(1)
                 agent.place(d)
-                count_18 = count_1 -1 
+                count_18 = count_1 -1 ;
                 agent.setItem(Block.WhiteConcrete, count_18 , 1)
                 if (count_1 == 1){
                    agent.setItem(Block.Air, count_1 +1  , 1)
                 }
-                count_1 = count_18
+                count_1 = count_18;
             } else if (agent.getItemCount(2) > 0 && agent.getItemDetail(2) == block) {
                 agent.setSlot(2)
                 agent.place(d);
-                count_18 = count_2 -1 
+                count_18 = count_2 -1 ;
                 agent.setItem(Block.LightGrayConcrete, count_18 , 2)
                 if (count_2 == 1){
                    agent.setItem(Block.Air, count_2 +1, 2)
                 }
-                count_2 = count_18
+                count_2 = count_18;
             } else if (agent.getItemCount(3) > 0 && agent.getItemDetail(3) == block) {
                 agent.setSlot(3)
                 agent.place(d);
-                count_18 = count_3 -1 
+                count_18 = count_3 -1 ;
                 agent.setItem(Block.GrayConcrete, count_18 , 2)
                 if (count_3 == 1){
                    agent.setItem(Block.Air, count_3 +1, 2)
                 }
-                count_3 = count_18
+                count_3 = count_18;
             } else if (agent.getItemCount(4) > 0 && agent.getItemDetail(4) == block) {
                 agent.setSlot(4)
                 agent.place(d);
-                count_18 = count_4 -1 
+                count_18 = count_4 -1 ;
                 agent.setItemBlock.BlackConcrete, count_18 , 2)
                 if (count_4 == 1){
                    agent.setItem(Block.Air, count_4 +1, 2)
                 }
-                count_4 = count_18
+                count_4 = count_18;
             }else if (agent.getItemCount(5) > 0 && agent.getItemDetail(5) == block) {
                 agent.setSlot(5)
                 agent.place(d);
-                count_18 = count_5 -1 
+                count_18 = count_5 -1 ;
                 agent.setItem( Block.BrownConcrete, count_18 , 2)
                 if (count_5 == 1){
                    agent.setItem(Block.Air, count_5 +1, 2)
                 }
-                count_5 = count_18
+                count_5 = count_18;
             }else if (agent.getItemCount(6) > 0 && agent.getItemDetail(6) == block) {
                 agent.setSlot(6)
                 agent.place(d);
-                count_18 = count_6 -1 
+                count_18 = count_6 -1 ;
                 agent.setItem(Block.RedConcrete, count_18 , 2)
                 if (count_6 == 1){
                    agent.setItem(Block.Air, count_6 +1, 2)
                 }
-                count_6 = count_18
+                count_6 = count_18;
             }else if (agent.getItemCount(7) > 0 && agent.getItemDetail(7) == block) {
                 agent.setSlot(7)
                 agent.place(d);
-                count_18 = count_7 -1 
+                count_18 = count_7 -1 ;
                 agent.setItem(Block.OrangeConcrete, count_18 , 2)
                 if (count_7 == 1){
                    agent.setItem(Block.Air, count_7 +1, 2)
                 }
-                count_7 = count_18
+                count_7 = count_18;
             }else if (agent.getItemCount(8) > 0 && agent.getItemDetail(8) == block) {
                 agent.setSlot(8)
                 agent.place(d);
-                count_18 = count_6 -1 
+                count_18 = count_6 -1; 
                 agent.setItem(Block.YellowConcrete, count_18 , 2)
                 if (count_8 == 1){
                    agent.setItem(Block.Air, count_8 +1, 2)
                 }
-                count_6 = count_18
+                count_6 = count_18;
             }else if (agent.getItemCount(9) > 0 && agent.getItemDetail(9) == block) {
                 agent.setSlot(9)
                 agent.place(d);
-                count_18 = count_9 -1 
+                count_18 = count_9 -1; 
                 agent.setItem(Block.LimeConcrete, count_18 , 2)
                 if (count_9 == 1){
                    agent.setItem(Block.Air, count_9 +1, 2)
                 }
-                count_6 = count_18
+                count_6 = count_18;
             }else if (agent.getItemCount(10) > 0 && agent.getItemDetail(10) == block) {
                 agent.setSlot(10)
                 agent.place(d);
-                count_18 = count_10 -1 
+                count_18 = count_10 -1; 
                 agent.setItem(Block.GreenConcrete, count_18 , 2)
                 if (count_10 == 1){
                    agent.setItem(Block.Air, count_10 +1, 2)
                 }
-                count_10 = count_18
+                count_10 = count_18;
             }else if (agent.getItemCount(11) > 0 && agent.getItemDetail(11) == block) {
                 agent.setSlot(11)
                 agent.place(d);
-                count_18 = count_11 -1 
+                count_18 = count_11 -1; 
                 agent.setItem(Block.CyanConcrete, count_18 , 2)
                 if (count_11 == 1){
                    agent.setItem(Block.Air, count_11 +1, 2)
                 }
-                count_11 = count_18
+                count_11 = count_18;
             }else if (agent.getItemCount(12) > 0 && agent.getItemDetail(12) == block) {
                 agent.setSlot(12)
                 agent.place(d);
-                count_18 = count_12 -1 
+                count_18 = count_12 -1 ;
                 agent.setItem(Block.LightBlueConcrete, count_18 , 2)
                 if (count_12 == 1){
                    agent.setItem(Block.Air, count_12 +1, 2)
                 }
-                count_12 = count_18
+                count_12 = count_18;
             }else if (agent.getItemCount(13) > 0 && agent.getItemDetail(13) == block) {
                 agent.setSlot(13)
                 agent.place(d);
-                count_18 = count_13 -1 
+                count_18 = count_13 -1 ;
                 agent.setItem(Block.BlueConcrete, count_18 , 2)
                 if (count_13 == 1){
                    agent.setItem(Block.Air, count_13 +1, 2)
                 }
-                count_11 = count_18
+                count_11 = count_18;
             }else if (agent.getItemCount(14) > 0 && agent.getItemDetail(14) == block) {
                 agent.setSlot(14)
                 agent.place(d);
-                count_18 = count_14 -1 
+                count_18 = count_14 -1; 
                 agent.setItem(Block.PurpleConcrete, count_18 , 2)
                 if (count_14 == 1){
                    agent.setItem(Block.Air, count_14 +1, 2)
                 }
-                count_14 = count_18
+                count_14 = count_18;
             }else if (agent.getItemCount(15) > 0 && agent.getItemDetail(15) == block) {
                 agent.setSlot(15)
                 agent.place(d);
-                count_18 = count_15 -1 
+                count_18 = count_15 -1; 
                 agent.setItem(Block.MagentaConcrete, count_18 , 2)
                 if (count_15 == 1){
                    agent.setItem(Block.Air, count_15 +1, 2)
                 }
-                count_15 = count_18
+                count_15 = count_18;
             }else if (agent.getItemCount(16) > 0 && agent.getItemDetail(16) == block) {
                 agent.setSlot(16)
                 agent.place(d);
-                count_18 = count_16 -1 
+                count_18 = count_16 -1; 
                 agent.setItem(Block.PinkConcrete, count_18 , 2)
                 if (count_16 == 1){
                    agent.setItem(Block.Air, count_16 +1, 2)
                 }
-                count_16 = count_18
+                count_16 = count_18;
             } else {
                 player.tell(mobs.target(LOCAL_PLAYER), "I don't have color block to place!")
             }             
