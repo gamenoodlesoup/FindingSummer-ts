@@ -818,6 +818,7 @@ namespace fs {
             let count_9 = agent.getItemCount(9);
             let count_10 = agent.getItemCount(10);
             let count_11 = agent.getItemCount(11);
+            let count_12 = agent.getItemCount(12);
             let count_13 = agent.getItemCount(13);
             let count_14 = agent.getItemCount(14);
             let count_15 = agent.getItemCount(15);
