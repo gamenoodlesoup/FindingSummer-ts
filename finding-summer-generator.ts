@@ -603,10 +603,25 @@ namespace fs {
      */
     //% block="Pick up Color Block %d"
     export function pickRocketColor(d: SixDirection): void {
+        let count_1 = agent.getItemCount(1);
+        let count_2 = agent.getItemCount(2);
+        let count_3 = agent.getItemCount(3);
+        let count_4 = agent.getItemCount(4);
+        let count_5 = agent.getItemCount(5);
+        let count_6 = agent.getItemCount(6);
+        let count_7 = agent.getItemCount(7);
+        let count_8 = agent.getItemCount(8);
+        let count_9 = agent.getItemCount(9);
+        let count_10 = agent.getItemCount(10);
+        let count_11 = agent.getItemCount(11);
+        let count_12 = agent.getItemCount(12);
+        let count_13 = agent.getItemCount(13);
+        let count_14 = agent.getItemCount(14);
+        let count_15 = agent.getItemCount(15);
+        let count_16 = agent.getItemCount(16);      
         if (checkBlockFromAgent(WHITE_CONCRETE, d)) {
             agent.destroy(d);
         
-            let count_1 = 0;
         
             if (agent.getItemDetail(1) == WHITE_CONCRETE) {
                 count_1 = agent.getItemCount(1);
@@ -617,7 +632,6 @@ namespace fs {
         if (checkBlockFromAgent(LIGHT_GRAY_CONCRETE, d)) {
             agent.destroy(d);
         
-            let count_2 = 0;
         
             if (agent.getItemDetail(2) == LIGHT_GRAY_CONCRETE) {
                 count_2 = agent.getItemCount(2);
@@ -629,7 +643,6 @@ namespace fs {
         if (checkBlockFromAgent(GRAY_CONCRETE, d)) {
             agent.destroy(d);
         
-            let count_3 = 0;
         
             if (agent.getItemDetail(3) == GRAY_CONCRETE) {
                 count_3 = agent.getItemCount(3);
@@ -640,7 +653,6 @@ namespace fs {
         if (checkBlockFromAgent(BLACK_CONCRETE, d)) {
             agent.destroy(d);
         
-            let count_4 = 0;
         
             if (agent.getItemDetail(4) == BLACK_CONCRETE) {
                 count_4 = agent.getItemCount(4);
@@ -651,7 +663,6 @@ namespace fs {
         if (checkBlockFromAgent(BROWN_CONCRETE, d)) {
             agent.destroy(d);
         
-            let count_5 = 0;
         
             if (agent.getItemDetail(5) == BROWN_CONCRETE) {
                 count_5 = agent.getItemCount(5);
@@ -662,7 +673,6 @@ namespace fs {
         if (checkBlockFromAgent(RED_CONCRETE, d)) {
             agent.destroy(d);
         
-            let count_6 = 0;
         
             if (agent.getItemDetail(6) == RED_CONCRETE) {
                 count_6 = agent.getItemCount(6);
@@ -673,7 +683,6 @@ namespace fs {
         if (checkBlockFromAgent(ORANGE_CONCRETE, d)) {
             agent.destroy(d);
         
-            let count_7 = 0;
         
             if (agent.getItemDetail(7) == ORANGE_CONCRETE) {
                 count_7 = agent.getItemCount(7);
@@ -684,7 +693,6 @@ namespace fs {
         if (checkBlockFromAgent(YELLOW_CONCRETE, d)) {
             agent.destroy(d);
         
-            let count_8 = 0;
         
             if (agent.getItemDetail(8) == YELLOW_CONCRETE) {
                 count_8 = agent.getItemCount(8);
@@ -695,7 +703,6 @@ namespace fs {
         if (checkBlockFromAgent(LIME_CONCRETE, d)) {
             agent.destroy(d);
         
-            let count_9 = 0;
         
             if (agent.getItemDetail(9) == LIME_CONCRETE) {
                 count_9 = agent.getItemCount(9);
@@ -706,7 +713,6 @@ namespace fs {
         if (checkBlockFromAgent(GREEN_CONCRETE, d)) {
             agent.destroy(d);
         
-            let count_10 = 0;
         
             if (agent.getItemDetail(10) == GREEN_CONCRETE) {
                 count_10 = agent.getItemCount(10);
@@ -717,7 +723,6 @@ namespace fs {
         if (checkBlockFromAgent(CYAN_CONCRETE, d)) {
             agent.destroy(d);
         
-            let count_11 = 0;
         
             if (agent.getItemDetail(11) == CYAN_CONCRETE) {
                 count_11 = agent.getItemCount(11);
@@ -728,7 +733,6 @@ namespace fs {
         if (checkBlockFromAgent(LIGHT_BLUE_CONCRETE, d)) {
             agent.destroy(d);
         
-            let count_12 = 0;
         
             if (agent.getItemDetail(12) == LIGHT_BLUE_CONCRETE) {
                 count_12 = agent.getItemCount(12);
@@ -739,7 +743,6 @@ namespace fs {
         if (checkBlockFromAgent(BLUE_CONCRETE, d)) {
             agent.destroy(d);
         
-            let count_13 = 0;
         
             if (agent.getItemDetail(13) == BLUE_CONCRETE) {
                 count_13 = agent.getItemCount(13);
@@ -750,7 +753,6 @@ namespace fs {
         if (checkBlockFromAgent(PURPLE_CONCRETE, d)) {
             agent.destroy(d);
         
-            let count_14 = 0;
         
             if (agent.getItemDetail(14) == PURPLE_CONCRETE) {
                 count_14 = agent.getItemCount(14);
@@ -761,7 +763,6 @@ namespace fs {
         if (checkBlockFromAgent(MAGENTA_CONCRETE, d)) {
             agent.destroy(d);
         
-            let count_15 = 0;
         
             if (agent.getItemDetail(15) == MAGENTA_CONCRETE) {
                 count_15 = agent.getItemCount(15);
@@ -772,7 +773,6 @@ namespace fs {
         if (checkBlockFromAgent(PINK_CONCRETE, d)) {
             agent.destroy(d);
         
-            let count_16 = 0;
         
             if (agent.getItemDetail(16) == PINK_CONCRETE) {
                 count_16 = agent.getItemCount(16);
