@@ -747,7 +747,7 @@ namespace fs {
             let count_15 = agent.getItemCount(15);
             let count_16 = agent.getItemCount(16);
             let count_18 = 0 ;      
-            if (agent.getItemCount(1) > 0 &&  block == WHITE_CONCRETE){
+            if (agent.getItemCount(1) > 0 && block == 236){
                 agent.setSlot(1)
                 agent.place(d)
                 count_18 = count_1 -1 ;
