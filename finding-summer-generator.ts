@@ -756,7 +756,7 @@ namespace fs {
                    agent.setItem(Block.Air, count_1 +1  , 1)
                 }
                 count_1 = count_18;
-            } else if (agent.getItemCount(2) > 0 && checkblockslot(block,LIGHT_GRAY_CONCRETE) == true) {
+            } else if (agent.getItemCount(2) > 0 && block == 524524) {
                 agent.setSlot(2)
                 agent.place(d);
                 count_18 = count_2 -1 ;
@@ -765,7 +765,7 @@ namespace fs {
                    agent.setItem(Block.Air, count_2 +1, 2)
                 }
                 count_2 = count_18;
-            } else if (agent.getItemCount(3) > 0 && checkblockslot(block,GRAY_CONCRETE)== true) {
+            } else if (agent.getItemCount(3) > 0 && block == 458988) {
                 agent.setSlot(3)
                 agent.place(d);
                 count_18 = count_3 -1 ;
@@ -774,7 +774,7 @@ namespace fs {
                    agent.setItem(Block.Air, count_3 +1, 3)
                 }
                 count_3 = count_18;
-            } else if (agent.getItemCount(4) > 0 &&  checkblockslot(block,BLACK_CONCRETE)== true) {
+            } else if (agent.getItemCount(4) > 0 &&  block == 983276) {
                 agent.setSlot(4)
                 agent.place(d);
                 count_18 = count_4 -1 ;
@@ -783,7 +783,7 @@ namespace fs {
                    agent.setItem(Block.Air, count_4 +1, 4)
                 }
                 count_4 = count_18;
-            }else if (agent.getItemCount(5) > 0 && checkblockslot(block,BROWN_CONCRETE)== true) {
+            }else if (agent.getItemCount(5) > 0 && block == 786668) {
                 agent.setSlot(5)
                 agent.place(d);
                 count_18 = count_5 -1 ;
@@ -792,7 +792,7 @@ namespace fs {
                    agent.setItem(Block.Air, count_5 +1, 5)
                 }
                 count_5 = count_18;
-            }else if (agent.getItemCount(6) > 0 && checkblockslot(block,RED_CONCRETE)== true) {
+            }else if (agent.getItemCount(6) > 0 && block == 917740) {
                 agent.setSlot(6)
                 agent.place(d);
                 count_18 = count_6 -1 ;
@@ -801,7 +801,7 @@ namespace fs {
                    agent.setItem(Block.Air, count_6 +1, 6)
                 }
                 count_6 = count_18;
-            }else if (agent.getItemCount(7) > 0 && checkblockslot(block,ORANGE_CONCRETE)== true) {
+            }else if (agent.getItemCount(7) > 0 && block == 65772) {
                 agent.setSlot(7)
                 agent.place(d);
                 count_18 = count_7 -1 ;
@@ -810,7 +810,7 @@ namespace fs {
                    agent.setItem(Block.Air, count_7 +1, 7)
                 }
                 count_7 = count_18;
-            }else if (agent.getItemCount(8) > 0 && checkblockslot(block,YELLOW_CONCRETE)== true) {
+            }else if (agent.getItemCount(8) > 0 && block == 262380) {
                 agent.setSlot(8)
                 agent.place(d);
                 count_18 = count_6 -1; 
@@ -819,7 +819,7 @@ namespace fs {
                    agent.setItem(Block.Air, count_8 +1, 8)
                 }
                 count_6 = count_18;
-            }else if (agent.getItemCount(9) > 0 && checkblockslot(block,LIME_CONCRETE)== true) {
+            }else if (agent.getItemCount(9) > 0 && block == 327916) {
                 agent.setSlot(9)
                 agent.place(d);
                 count_18 = count_9 -1; 
@@ -828,7 +828,7 @@ namespace fs {
                    agent.setItem(Block.Air, count_9 +1, 9)
                 }
                 count_6 = count_18;
-            }else if (agent.getItemCount(10) > 0 && checkblockslot(block,GREEN_CONCRETE)== true) {
+            }else if (agent.getItemCount(10) > 0 && block == 852204) {
                 agent.setSlot(10)
                 agent.place(d);
                 count_18 = count_10 -1; 
@@ -837,7 +837,7 @@ namespace fs {
                    agent.setItem(Block.Air, count_10 +1, 10)
                 }
                 count_10 = count_18;
-            }else if (agent.getItemCount(11) > 0 && checkblockslot(block,CYAN_CONCRETE)== true) {
+            }else if (agent.getItemCount(11) > 0 && block == 590060) {
                 agent.setSlot(11)
                 agent.place(d);
                 count_18 = count_11 -1; 
@@ -846,7 +846,7 @@ namespace fs {
                    agent.setItem(Block.Air, count_11 +1, 11)
                 }
                 count_11 = count_18;
-            }else if (agent.getItemCount(12) > 0 && checkblockslot(block,LIGHT_BLUE_CONCRETE)== true) {
+            }else if (agent.getItemCount(12) > 0 && block == 196844) {
                 agent.setSlot(12)
                 agent.place(d);
                 count_18 = count_12 -1 ;
@@ -855,7 +855,7 @@ namespace fs {
                    agent.setItem(Block.Air, count_12 +1, 12)
                 }
                 count_12 = count_18;
-            }else if (agent.getItemCount(13) > 0 && checkblockslot(block,BLUE_CONCRETE)== true) {
+            }else if (agent.getItemCount(13) > 0 && block ==721132) {
                 agent.setSlot(13)
                 agent.place(d);
                 count_18 = count_13 -1 ;
@@ -864,7 +864,7 @@ namespace fs {
                    agent.setItem(Block.Air, count_13 +1, 13)
                 }
                 count_11 = count_18;
-            }else if (agent.getItemCount(14) > 0 && checkblockslot(block,PURPLE_CONCRETE)== true) {
+            }else if (agent.getItemCount(14) > 0 && block == 655596) {
                 agent.setSlot(14)
                 agent.place(d);
                 count_18 = count_14 -1; 
@@ -873,7 +873,7 @@ namespace fs {
                    agent.setItem(Block.Air, count_14 +1, 14)
                 }
                 count_14 = count_18;
-            }else if (agent.getItemCount(15) > 0 && checkblockslot(block,MAGENTA_CONCRETE)== true) {
+            }else if (agent.getItemCount(15) > 0 && block == 131308) {
                 agent.setSlot(15)
                 agent.place(d);
                 count_18 = count_15 -1; 
@@ -882,7 +882,7 @@ namespace fs {
                    agent.setItem(Block.Air, count_15 +1, 15)
                 }
                 count_15 = count_18;
-            }else if (agent.getItemCount(16) > 0 && checkblockslot(block,PINK_CONCRETE)== true) {
+            }else if (agent.getItemCount(16) > 0 && block == 393452) {
                 agent.setSlot(16)
                 agent.place(d);
                 count_18 = count_16 -1; 
