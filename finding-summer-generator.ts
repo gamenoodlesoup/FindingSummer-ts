@@ -621,19 +621,11 @@ namespace fs {
         let count_16 = agent.getItemCount(16);      
         if (checkBlockFromAgent(WHITE_CONCRETE, d)) {
             agent.destroy(d);
-            if (agent.getItemDetail(1) == WHITE_CONCRETE) {
-                count_1 = agent.getItemCount(1);
-            }
             agent.setItem(WHITE_CONCRETE, count_1 + 1, 1)
         };
 
         if (checkBlockFromAgent(LIGHT_GRAY_CONCRETE, d)) {
             agent.destroy(d);
-        
-        
-            if (agent.getItemDetail(2) == LIGHT_GRAY_CONCRETE) {
-                count_2 = agent.getItemCount(2);
-            }
             agent.setItem(LIGHT_GRAY_CONCRETE, count_2 + 1, 2)
         };
 
@@ -796,6 +788,7 @@ namespace fs {
         const dir = agent.getCardinalDirection(d);
         const agentPos = agent.getPosition().move(dir, 1);
         let canPlace = false;
+        const color = block
 
         for (const c of check) {
             if (compareWorldPosition(agentPos,c)) {
@@ -822,7 +815,7 @@ namespace fs {
             let count_15 = agent.getItemCount(15);
             let count_16 = agent.getItemCount(16);
             let count_18 = 0 ;      
-            if (agent.getItemCount(1) > 0 && WHITE_CONCRETE == block) {
+            if (agent.getItemCount(1) > 0 && color == WHITE_CONCRETE) {
                 agent.setSlot(1)
                 agent.place(d)
                 count_18 = count_1 -1 ;
@@ -831,7 +824,7 @@ namespace fs {
                    agent.setItem(Block.Air, count_1 +1  , 1)
                 }
                 count_1 = count_18;
-            } else if (agent.getItemCount(2) > 0 && LIGHT_GRAY_CONCRETE == block) {
+            } else if (agent.getItemCount(2) > 0 && block == LIGHT_GRAY_CONCRETE) {
                 agent.setSlot(2)
                 agent.place(d);
                 count_18 = count_2 -1 ;
