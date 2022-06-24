@@ -44,7 +44,7 @@ enum Rocket_Color {
     WHITE_CONCRETE = Block.WhiteConcrete,
     //% blockIdentity="blocks.block" enumval=524524 block="LightGray Concrete"
     //% jres alias=LIGHT_GRAY_CONCRETE
-    LIGHT_BLUE_CONCRETE = Block.LightGrayConcrete,
+    LIGHT_GRAY_CONCRETE = Block.LightGrayConcrete,
     //% blockIdentity="blocks.block" enumval=458988 block="Gray Concrete"
     //% jres alias=GRAY_CONCRETE
     GRAY_CONCRETE = Block.GrayConcrete,
@@ -747,7 +747,7 @@ namespace fs {
             let count_15 = agent.getItemCount(15);
             let count_16 = agent.getItemCount(16);
             let count_18 = 0 ;      
-            if (agent.getItemCount(1) > 0 &&  checkblockslot(block,WHITE_CONCRETE) == true) {
+            if (agent.getItemCount(1) > 0 &&  block == Block.WhiteConcrete){
                 agent.setSlot(1)
                 agent.place(d)
                 count_18 = count_1 -1 ;
