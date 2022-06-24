@@ -27,52 +27,6 @@ enum Block_System {
     REDSTONE_BLOCK = Block.RedstoneBlock,
     //% blockIdentity="blocks.block" enumval=236 block="White Concrete"
     //% jres alias=WHITE_CONCRETE
-    WhiteConcrete = Block.WhiteConcrete,
-    //% blockIdentity="blocks.block" enumval=524524 block="LightGray Concrete"
-    //% jres alias=LIGHT_GRAY_CONCRETE
-    LightGrayConcrete = Block.LightGrayConcrete,
-    //% blockIdentity="blocks.block" enumval=458988 block="Gray Concrete"
-    //% jres alias=GRAY_CONCRETE
-    GrayConcrete = Block.GrayConcrete,
-    //% blockIdentity="blocks.block" enumval=983276 block="Black Concrete"
-    //% jres alias=BLACK_CONCRETE
-    BlackConcrete = Block.BlackConcrete,
-    //% blockIdentity="blocks.block" enumval=786668 block="Brown Concrete"
-    //% jres alias=BROWN_CONCRETE
-    BrownConcrete = Block.BrownConcrete,
-    //% blockIdentity="blocks.block" enumval=917740 block="Red Concrete"
-    //% jres alias=RED_CONCRETE
-    RedConcrete = Block.RedConcrete,
-    //% blockIdentity="blocks.block" enumval=65772 block="Orange Concrete"
-    //% jres alias=ORANGE_CONCRETE
-    OrangeConcrete = Block.OrangeConcrete,
-    //% blockIdentity="blocks.block" enumval=262380 block="Yellow Concrete"
-    //% jres alias=YELLOW_CONCRETE
-    YellowConcrete = Block.YellowConcrete,
-    //% blockIdentity="blocks.block" enumval=327916 block="Lime Concrete"
-    //% jres alias=LIME_CONCRETE
-    LimeConcrete = Block.LimeConcrete,
-    //% blockIdentity="blocks.block" enumval=852204 block="Green Concrete"
-    //% jres alias=GREEN_CONCRETE
-    GreenConcrete = Block.GreenConcrete,
-    //% blockIdentity="blocks.block" enumval=590060 block="Cyan Concrete"
-    //% jres alias=CYAN_CONCRETE
-    CyanConcrete = Block.CyanConcrete,
-    //% blockIdentity="blocks.block" enumval=196844 block="Light Blue Concrete"
-    //% jres alias=LIGHT_BLUE_CONCRETE
-    LightBlueConcrete = Block.LightBlueConcrete,
-    //% blockIdentity="blocks.block" enumval=721132 block="Blue Concrete"
-    //% jres alias=BLUE_CONCRETE
-    BlueConcrete = Block.BlueConcrete,
-    //% blockIdentity="blocks.block" enumval=655596 block="Purple Concrete"
-    //% jres alias=PURPLE_CONCRETE
-    PurpleConcrete = Block.PurpleConcrete,
-    //% blockIdentity="blocks.block" enumval=131308 block="Magenta Concrete"
-    //% jres alias=MAGENTA_CONCRETE
-    MagentaConcrete = Block.MagentaConcrete,
-    //% blockIdentity="blocks.block" enumval=393452 block="Pink Concrete"
-    //% jres alias=PINK_CONCRETE
-    PinkConcrete = Block.PinkConcrete,
 }
 
 enum Ice {
@@ -1371,7 +1325,7 @@ namespace fs {
         return z;
         
     }
-    function checkblockslot(block: block,color : Block_System){
+    function checkblockslot(block: block,color : block){
     let same= false
     if (block == color){
         same = true
