@@ -1325,7 +1325,7 @@ namespace fs {
         return z;
         
     }
-    function checkblockslot(block: Block, color : Rocket_Color){
+    function checkblockslot(block: Block, color : Block){
     let same= false
     if (block == color){
         same = true
