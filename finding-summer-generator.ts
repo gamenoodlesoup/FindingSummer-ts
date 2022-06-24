@@ -41,52 +41,52 @@ enum Ice {
 enum Rocket_Color {
     //% blockIdentity="blocks.block" enumval=236 block="White Concrete"
     //% jres alias=WHITE_CONCRETE
-    WhiteConcrete = Block.WhiteConcrete,
+    WHITE_CONCRETE = Block.WhiteConcrete,
     //% blockIdentity="blocks.block" enumval=524524 block="LightGray Concrete"
     //% jres alias=LIGHT_GRAY_CONCRETE
-    LightGrayConcrete = Block.LightGrayConcrete,
+    LIGHT_BLUE_CONCRETE = Block.LightGrayConcrete,
     //% blockIdentity="blocks.block" enumval=458988 block="Gray Concrete"
     //% jres alias=GRAY_CONCRETE
-    GrayConcrete = Block.GrayConcrete,
+    GRAY_CONCRETE = Block.GrayConcrete,
     //% blockIdentity="blocks.block" enumval=983276 block="Black Concrete"
     //% jres alias=BLACK_CONCRETE
-    BlackConcrete = Block.BlackConcrete,
+    BLACK_CONCRETE = Block.BlackConcrete,
     //% blockIdentity="blocks.block" enumval=786668 block="Brown Concrete"
     //% jres alias=BROWN_CONCRETE
-    BrownConcrete = Block.BrownConcrete,
+    BROWN_CONCRETE = Block.BrownConcrete,
     //% blockIdentity="blocks.block" enumval=917740 block="Red Concrete"
     //% jres alias=RED_CONCRETE
-    RedConcrete = Block.RedConcrete,
+    RED_CONCRETE = Block.RedConcrete,
     //% blockIdentity="blocks.block" enumval=65772 block="Orange Concrete"
     //% jres alias=ORANGE_CONCRETE
-    OrangeConcrete = Block.OrangeConcrete,
+    ORANGE_CONCRETE = Block.OrangeConcrete,
     //% blockIdentity="blocks.block" enumval=262380 block="Yellow Concrete"
     //% jres alias=YELLOW_CONCRETE
-    YellowConcrete = Block.YellowConcrete,
+    YELLOW_CONCRETE = Block.YellowConcrete,
     //% blockIdentity="blocks.block" enumval=327916 block="Lime Concrete"
     //% jres alias=LIME_CONCRETE
-    LimeConcrete = Block.LimeConcrete,
+    LIME_CONCRETE = Block.LimeConcrete,
     //% blockIdentity="blocks.block" enumval=852204 block="Green Concrete"
     //% jres alias=GREEN_CONCRETE
-    GreenConcrete = Block.GreenConcrete,
+    GREEN_CONCRETE = Block.GreenConcrete,
     //% blockIdentity="blocks.block" enumval=590060 block="Cyan Concrete"
     //% jres alias=CYAN_CONCRETE
-    CyanConcrete = Block.CyanConcrete,
+    CYAN_CONCRETE = Block.CyanConcrete,
     //% blockIdentity="blocks.block" enumval=196844 block="Light Blue Concrete"
     //% jres alias=LIGHT_BLUE_CONCRETE
-    LightBlueConcrete = Block.LightBlueConcrete,
+    LIGHT_BLUE_CONCRETE = Block.LightBlueConcrete,
     //% blockIdentity="blocks.block" enumval=721132 block="Blue Concrete"
     //% jres alias=BLUE_CONCRETE
-    BlueConcrete = Block.BlueConcrete,
+    BLUE_CONCRETE = Block.BlueConcrete,
     //% blockIdentity="blocks.block" enumval=655596 block="Purple Concrete"
     //% jres alias=PURPLE_CONCRETE
-    PurpleConcrete = Block.PurpleConcrete,
+    PURPLE_CONCRETE = Block.PurpleConcrete,
     //% blockIdentity="blocks.block" enumval=131308 block="Magenta Concrete"
     //% jres alias=MAGENTA_CONCRETE
-    MagentaConcrete = Block.MagentaConcrete,
+    MAGENTA_CONCRETE = Block.MagentaConcrete,
     //% blockIdentity="blocks.block" enumval=393452 block="Pink Concrete"
     //% jres alias=PINK_CONCRETE
-    PinkConcrete = Block.PinkConcrete,
+    PINK_CONCRETE = Block.PinkConcrete,
 
 }
 
@@ -1325,7 +1325,7 @@ namespace fs {
         return z;
         
     }
-    function checkblockslot(block: Rocket_Color, color : Rocket_Color){
+    function checkblockslot(block: Block, color : Rocket_Color){
     let same= false
     if (block == color){
         same = true
