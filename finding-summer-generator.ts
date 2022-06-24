@@ -766,6 +766,7 @@ namespace fs {
         const dir = agent.getCardinalDirection(d);
         const agentPos = agent.getPosition().move(dir, 1);
         let canPlace = false;
+        let color = block
 
         for (const c of check) {
             if (compareWorldPosition(agentPos,c)) {
@@ -792,7 +793,7 @@ namespace fs {
             let count_15 = agent.getItemCount(15);
             let count_16 = agent.getItemCount(16);
             let count_18 = 0 ;      
-            if (agent.getItemCount(1) > 0 && checkblockslot(block,WHITE_CONCRETE) == true) {
+            if (agent.getItemCount(1) > 0 && color == WHITE_CONCRETE) {
                 agent.setSlot(1)
                 agent.place(d)
                 count_18 = count_1 -1 ;
