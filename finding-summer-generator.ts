@@ -24,7 +24,7 @@ enum Block_System {
     GOLD_BLOCK = Block.GoldBlock,
     //% 
     //% 
-    REDSTONE_BLOCK = Block.RedstoneBlock
+    REDSTONE_BLOCK = Block.RedstoneBlock,
         //% blockIdentity="blocks.block" enumval=236 block="White Concrete"
     //% jres alias=WHITE_CONCRETE
     WhiteConcrete = Block.WhiteConcrete,
