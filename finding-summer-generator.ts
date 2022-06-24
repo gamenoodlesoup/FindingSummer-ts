@@ -747,7 +747,7 @@ namespace fs {
             let count_15 = agent.getItemCount(15);
             let count_16 = agent.getItemCount(16);
             let count_18 = 0 ;      
-            if (agent.getItemCount(1) > 0 && color == WHITE_CONCRETE) {
+            if (agent.getItemCount(1) > 0 &&  checkblockslot(block,WHITE_CONCRETE) == true) {
                 agent.setSlot(1)
                 agent.place(d)
                 count_18 = count_1 -1 ;
@@ -1325,7 +1325,7 @@ namespace fs {
         return z;
         
     }
-    function checkblockslot(block: block,color : block){
+    function checkblockslot(block: Rocket_Color, color : Rocket_Color){
     let same= false
     if (block == color){
         same = true
