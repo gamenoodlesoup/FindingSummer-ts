@@ -219,7 +219,8 @@ namespace fs {
         agent.place(d);
         }else{
         player.tell(mobs.target(LOCAL_PLAYER), "I can't place Iron block at this position!")
-    }  
+    }
+}  
 
     /**
      * Clean the leak in the d direction
