@@ -311,7 +311,6 @@ namespace fs {
             let count_2 = 0;
             let count_3 = 0;
             let count_4 = 0;
-            player.tell(mobs.target(LOCAL_PLAYER), block)
             if (agent.getItemCount(1) > 0  && agent.getItemDetail(1) == block) {
                 agent.setSlot(1)
                 agent.place(d)
