@@ -194,10 +194,31 @@ namespace fs {
     export function replaceWall(block: IronBlock, d: SixDirection): void {
         if(shouldStop()) return;
 
+        const check = [
+            world(1249 ,33 ,-266), 
+            world(1249 ,32 ,-265), 
+            world(1249 ,31 ,-261), 
+            world(1249 ,34 ,-260),
+            world(1210 ,32 ,-259), 
+        ];
+
+        const dir = agent.getCardinalDirection(d);
+        const agentPos = agent.getPosition().move(dir, 1);
+        let canPlace = false;
+
+        for (const c of check) {
+            if (compareWorldPosition(agentPos,c)) {
+                canPlace = true;
+                break;
+            }
+        }
+        if(canPlace==true){
         agent.setItem(block, 1, 1)
         agent.setSlot(1)
 
         agent.place(d);
+        }else{
+        player.tell(mobs.target(LOCAL_PLAYER), "I can't place Iron block at this position!")
     }  
 
     /**
