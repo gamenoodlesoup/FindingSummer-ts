@@ -1138,9 +1138,11 @@ namespace fs {
                 agent.setSlot(1)
                 agent.place(d);
                 count_2 = count_1-1
+                agent.setItem(Block.GoldOre, count_2, 1)
                 if(count_1 == 1){
                     agent.setItem(Block.Air, count_2 + 1, 1)
                 }
+                count_1 = count_2
             } else {
                 player.tell(mobs.target(LOCAL_PLAYER), "I don't have Chip to place!")
             }
