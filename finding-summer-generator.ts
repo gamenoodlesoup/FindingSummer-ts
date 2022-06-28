@@ -1007,10 +1007,37 @@ namespace fs {
     //% block="Airlock crack is %d"
     export function airlockCrackLocate(d:SixDirection): boolean {
         if(shouldStop()) return false;
+        const check = [
+            world(-2640, 48, -363),
+            world(-2640, 48, -362),
+            world(-2640, 48, -361),
 
-        const inspected = agent.inspect(AgentInspection.Block, d);
+            world(-2640, 51, -360),
+            world(-2640, 50, -360),
+            world(-2640, 49, -360),
 
-        return inspected === Block.Air;
+            world(-2640, 51, -364),
+            world(-2640, 50, -364),
+            world(-2640, 49, -364),
+
+            world(-2640, 52, -363),
+            world(-2640, 52, -362),
+            world(-2640, 52, -361)
+        ];
+
+        const dir = agent.getCardinalDirection(d);
+        const agentPos = agent.getPosition().move(dir, 1);
+        let canPlace = false;
+
+        for (const c of check) {
+            if (compareWorldPosition(agentPos,c)) {
+                canPlace = true;
+                break;
+            }
+        }  
+        if(agent.inspect(AgentInspection.Block, d) == Block.Air && Canplace == true){
+            return inspected === Block.Air;
+        }
 
     }
 
