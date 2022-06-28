@@ -1035,7 +1035,7 @@ namespace fs {
                 break;
             }
         }  
-        if(agent.inspect(AgentInspection.Block, d) == Block.Air && canplace == true){
+        if(agent.inspect(AgentInspection.Block, d) == Block.Air && canPlace == true){
             return true
         }
 
