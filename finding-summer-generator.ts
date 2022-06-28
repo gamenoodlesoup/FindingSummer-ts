@@ -1036,7 +1036,9 @@ namespace fs {
             }
         }  
         if(agent.inspect(AgentInspection.Block, d) == Block.Air && canPlace == true){
-            return true
+            return true;   
+        }else{
+            return false;
         }
 
     }
