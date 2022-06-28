@@ -1132,9 +1132,15 @@ namespace fs {
         }
         
         if (canPlace == true) {
+            let count_1 = agent.getItemcount(1)
+            let count_2 = 0
             if (agent.getItemCount(1) > 0 && agent.getItemDetail(1) == Block.GoldOre) {
                 agent.setSlot(1)
                 agent.place(d);
+                count_2 = count_1-1
+                if(count_1 == 1){
+                    agent.setItem(Block.air, count_2 + 1, 1)
+                }
             } else {
                 player.tell(mobs.target(LOCAL_PLAYER), "I don't have Chip to place!")
             }
